@@ -9,6 +9,8 @@ package BasDato;
  *
  * @author Wall-E
  */
-public class holaPerros {
-    
+public class Cliente {
+    public static void main (String[] args){
+        
+    }
 }
