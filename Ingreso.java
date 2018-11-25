@@ -9,12 +9,12 @@ package BasDato;
  *
  * @author Wall-E
  */
-public class ingreso extends javax.swing.JFrame {
+public class Ingreso extends javax.swing.JFrame {
 
     /**
      * Creates new form ingreso
      */
-    public ingreso() {
+    public Ingreso() {
         initComponents();
         this.setLocationRelativeTo(null);
     }
@@ -30,10 +30,10 @@ public class ingreso extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         textoUsuario = new javax.swing.JTextField();
-        textoContrasenia = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         Cancelar = new javax.swing.JButton();
         Ingresar = new javax.swing.JButton();
+        textoContraseña = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Ingresar");
@@ -43,8 +43,6 @@ public class ingreso extends javax.swing.JFrame {
         jLabel1.setText("Nombre de Usuario:");
 
         textoUsuario.setFont(new java.awt.Font("Verdana", 0, 11)); // NOI18N
-
-        textoContrasenia.setFont(new java.awt.Font("Verdana", 0, 11)); // NOI18N
 
         jLabel2.setFont(new java.awt.Font("Verdana", 0, 11)); // NOI18N
         jLabel2.setText("Contraseña:");
@@ -71,7 +69,7 @@ public class ingreso extends javax.swing.JFrame {
                     .addComponent(jLabel2))
                 .addGap(45, 45, 45)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(textoContrasenia, javax.swing.GroupLayout.DEFAULT_SIZE, 86, Short.MAX_VALUE)
+                    .addComponent(textoContraseña, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
                     .addComponent(textoUsuario))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
@@ -90,8 +88,8 @@ public class ingreso extends javax.swing.JFrame {
                     .addComponent(textoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(59, 59, 59)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(textoContrasenia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
+                    .addComponent(jLabel2)
+                    .addComponent(textoContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Cancelar)
@@ -123,30 +121,53 @@ public class ingreso extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ingreso.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Ingreso.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ingreso.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Ingreso.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ingreso.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Ingreso.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ingreso.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Ingreso.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ingreso().setVisible(true);
+                new Ingreso().setVisible(true);
             }
         });
     }
+    
+    public boolean txtSpacesEmpty(){
+        boolean verifica = true;
+        //Pregunta si los dos textos no están vacios
+        if(!textoUsuario.getText().isEmpty() && !textoContraseña.getText().isEmpty()){
+            verifica = false;
+        }
+        return verifica;
+    }
+    public void mostrarVentana(Ingreso ventana){
+        ventana.setVisible(true);
+    }
+    public void cerrar(){
+        System.exit(0);
+    }
+    public void clearSpaces(){
+        textoUsuario.setText("");
+        textoContraseña.setText("");
+    }
+    public void mostrarMenu(Ingreso ventana){
+        ventana.setVisible(false);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Cancelar;
-    private javax.swing.JButton Ingresar;
+    public javax.swing.JButton Cancelar;
+    public javax.swing.JButton Ingresar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JTextField textoContrasenia;
-    private javax.swing.JTextField textoUsuario;
+    public javax.swing.JPasswordField textoContraseña;
+    public javax.swing.JTextField textoUsuario;
     // End of variables declaration//GEN-END:variables
 }
