@@ -57,6 +57,11 @@ public class Ingreso extends javax.swing.JFrame {
 
         Ingresar.setFont(new java.awt.Font("Verdana", 0, 11)); // NOI18N
         Ingresar.setText("Ingresar");
+        Ingresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                IngresarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -104,6 +109,11 @@ public class Ingreso extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_CancelarActionPerformed
 
+    private void IngresarActionPerformed(java.awt.event.ActionEvent evt) {
+//        MenuPrincipal M=new MenuPrincipal();
+//        dispose();
+//        M.setVisible(true);
+    }
     /**
      * @param args the command line arguments
      */

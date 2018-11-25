@@ -5,6 +5,7 @@
  */
 package BasDato;
 
+import javax.swing.JButton;
 import javax.swing.JOptionPane;
 
 /**
@@ -138,7 +139,6 @@ public class CreaBase extends javax.swing.JFrame {
     public void mostrarVentana(CreaBase pVentana){
         pVentana.setVisible(true);
     }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btAceptar;
     public javax.swing.JButton btSalir;

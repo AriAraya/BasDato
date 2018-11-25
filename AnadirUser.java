@@ -258,7 +258,7 @@ public class AnadirUser extends javax.swing.JFrame {
                 }
             } 
         }
-        if(cantEspeciales>1 && cantLetras>1 && cantNumeros>1){
+        if(cantEspeciales>=1 && cantLetras>=1 && cantNumeros>=1){
             valida = true;
         }
         return valida;
