@@ -37,7 +37,7 @@ public class ControladorMenu implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         switch(e.getActionCommand()){
             case "Eliminar usuario":
-                
+                eliminaUsuario();
                 break;
             case "Crear base de datos":
                 
@@ -80,6 +80,11 @@ public class ControladorMenu implements ActionListener{
         AnadirUser ventanaAñadir = new AnadirUser();
         ControladorAnadirUser controladorAnadirUser = new ControladorAnadirUser(ventanaAñadir);
         controladorAnadirUser.mostrarVentana();
+    }
+    public void eliminaUsuario(){
+        ElimUser ventanaEliminaUser = new ElimUser();
+        ControladorElimUser controlador = new ControladorElimUser(ventanaEliminaUser);
+        controlador.mostrarVentana();
     }
     public void cerrar(){
         ventanaMenu.cerrarVentana(ventanaMenu);
