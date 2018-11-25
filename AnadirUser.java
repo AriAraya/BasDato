@@ -5,6 +5,8 @@
  */
 package BasDato;
 
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 
 /**
@@ -70,7 +72,14 @@ public class AnadirUser extends javax.swing.JFrame {
         jLabel4.setText("Bases de datos:");
 
         boxBases.setMaximumRowCount(20);
-        boxBases.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "\"No hay bases registradas\"" }));
+        boxBases.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boxBasesActionPerformed(evt);
+            }
+        });
+
+        txtBasesGuardadas.setBackground(new java.awt.Color(255, 255, 255));
+        txtBasesGuardadas.setForeground(new java.awt.Color(0, 0, 0));
 
         btAgregarBase.setText("+");
 
@@ -146,6 +155,10 @@ public class AnadirUser extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void boxBasesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boxBasesActionPerformed
+        
+    }//GEN-LAST:event_boxBasesActionPerformed
 
     /**
      * @param args the command line arguments
@@ -260,8 +273,14 @@ public class AnadirUser extends javax.swing.JFrame {
     public void cerrarVentana(AnadirUser ventana){
         ventana.setVisible(false);
     }
-    public void agregarTexto(String texto){
-        txtBasesGuardadas.setText(txtBasesGuardadas.getText()+","+texto);
+    public void agregarTexto(){
+        String msg = (String) boxBases.getSelectedItem();
+        txtBasesGuardadas.setText(txtBasesGuardadas.getText()+","+msg);
+    }
+    public void cargaBases(String[] lista){
+        for (String lista1 : lista) {
+            boxBases.addItem(lista1);
+        }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
