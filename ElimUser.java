@@ -96,10 +96,10 @@ public class ElimUser extends javax.swing.JFrame {
     }//GEN-LAST:event_btEliminarActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {                                         
-        // TODO add your handling code here:
-        MenuPrincipal M=new MenuPrincipal();
-        dispose();
-        M.setVisible(true);
+//        // TODO add your handling code here:
+//        MenuPrincipal M=new MenuPrincipal();
+//        dispose();
+//        M.setVisible(true);
     }
     
     /**

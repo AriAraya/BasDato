@@ -5,6 +5,8 @@
  */
 package BasDato;
 
+//import Sockets.CreaTabla;
+
 /**
  *
  * @author U1
@@ -88,9 +90,9 @@ public class Tablas extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
         // TODO add your handling code here:
         if(direccion==1){
-            CreaTabla c=new CreaTabla();
-            dispose();
-            c.setVisible(true);
+            //CreaTabla c=new CreaTabla();
+            //dispose();
+            //c.setVisible(true);
         }
         if(direccion==2){
             ElimTabla e=new ElimTabla();
@@ -123,16 +125,16 @@ public class Tablas extends javax.swing.JFrame {
             e.setVisible(true);
         }
         if(direccion==8){
-            MenuPrincipal M=new MenuPrincipal();
+            //MenuPrincipal M=new MenuPrincipal();
             dispose();
-            M.setVisible(true);
+            //M.setVisible(true);
         }
     }
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {                                         
         // TODO add your handling code here:
-        MenuPrincipal M=new MenuPrincipal();
+        //MenuPrincipal M=new MenuPrincipal();
         dispose();
-        M.setVisible(true);
+        //M.setVisible(true);
     }
     /**
      * @param args the command line arguments
