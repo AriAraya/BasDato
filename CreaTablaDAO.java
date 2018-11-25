@@ -9,6 +9,7 @@ package BasDato;
  *
  * @author Wall-E
  */
-public interface CreaTablaDAO {
-    
+  
+abstract interface CreaTablaDAO {
+    abstract String crearTabla(String pNombre,String pBase,String pCampo,Boolean pRequerido,int pTipo);
 }
