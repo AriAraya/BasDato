@@ -5,17 +5,24 @@
  */
 package BasDato;
 
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author U1
  */
 public class AnadirUser extends javax.swing.JFrame {
-
-    /**
-     * Creates new form AnadirUser
-     */
+    private String contraseña;
+    private String usuario;
+    
     public AnadirUser() {
         initComponents();
+        this.errorContraseña.setVisible(false);
+        this.errorNombre.setVisible(false);
+        txtBasesGuardadas.setEnabled(false);
+        this.setLocationRelativeTo(null);
     }
     public boolean valContrasenia(String contr){
         return true;
@@ -33,12 +40,20 @@ public class AnadirUser extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jPasswordField1 = new javax.swing.JPasswordField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        txtNombre = new javax.swing.JTextField();
+        txtContraseña = new javax.swing.JPasswordField();
+        btAceptar = new javax.swing.JButton();
+        btCancelar = new javax.swing.JButton();
+        errorNombre = new javax.swing.JLabel();
+        errorContraseña = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        boxBases = new javax.swing.JComboBox<>();
+        txtBasesGuardadas = new javax.swing.JTextField();
+        btAgregarBase = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Añadir usuario");
+        setResizable(false);
 
         jLabel1.setText("Crear usuario");
 
@@ -46,79 +61,105 @@ public class AnadirUser extends javax.swing.JFrame {
 
         jLabel3.setText("Contraseña: ");
 
-        jTextField1.setText("jTextField1");
+        btAceptar.setText("Aceptar");
 
-        jPasswordField1.setText("jPasswordField1");
+        btCancelar.setText("Cancelar");
 
-        jButton1.setText("Crear");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        errorNombre.setForeground(new java.awt.Color(255, 0, 0));
+
+        errorContraseña.setForeground(new java.awt.Color(255, 0, 0));
+
+        jLabel4.setText("Bases de datos:");
+
+        boxBases.setMaximumRowCount(20);
+        boxBases.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                boxBasesActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Volver");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
+        txtBasesGuardadas.setBackground(new java.awt.Color(255, 255, 255));
+        txtBasesGuardadas.setForeground(new java.awt.Color(0, 0, 0));
+
+        btAgregarBase.setText("+");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(errorContraseña)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(errorNombre)
+                        .addComponent(jLabel3)
+                        .addComponent(jLabel2)
+                        .addComponent(txtNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 305, Short.MAX_VALUE)
+                        .addComponent(txtContraseña)))
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(163, 163, 163)
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(27, 27, 27)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addContainerGap()
+                        .addComponent(jLabel4)
+                        .addGap(16, 16, 16)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtBasesGuardadas, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButton1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton2))
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel2)
-                            .addComponent(jTextField1)
-                            .addComponent(jPasswordField1, javax.swing.GroupLayout.DEFAULT_SIZE, 301, Short.MAX_VALUE))))
-                .addContainerGap(72, Short.MAX_VALUE))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(btCancelar)
+                                        .addGap(155, 155, 155)
+                                        .addComponent(btAceptar))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(boxBases, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(27, 27, 27)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btAgregarBase)))))
+                .addContainerGap(42, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(22, 22, 22)
                 .addComponent(jLabel1)
-                .addGap(18, 18, 18)
+                .addGap(4, 4, 4)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33)
-                .addComponent(jLabel3)
+                .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
+                .addComponent(errorNombre)
+                .addGap(21, 21, 21)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(errorContraseña)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
-                .addGap(47, 47, 47))
+                    .addComponent(jLabel4)
+                    .addComponent(boxBases, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btAgregarBase, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txtBasesGuardadas, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btAceptar)
+                    .addComponent(btCancelar))
+                .addGap(28, 28, 28))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
-        // TODO add your handling code here:
-    }
-    
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {                                         
-        // TODO add your handling code here:
-        MenuPrincipal M=new MenuPrincipal();
-        dispose();
-        M.setVisible(true);
-    }
+    private void boxBasesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boxBasesActionPerformed
+        
+    }//GEN-LAST:event_boxBasesActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -153,14 +194,108 @@ public class AnadirUser extends javax.swing.JFrame {
             }
         });
     }
+    
+    public boolean validaEspacios(){
+        usuario = txtNombre.getText();
+        contraseña = txtContraseña.getText();
+        lowerCase(usuario, contraseña);
+        boolean valida = true;
+        if(txtNombre.getText().isEmpty()){
+           errorNombre.setText("No puede haber espacios en blanco");
+           errorNombre.setVisible(true);
+           valida = false;
+        }else{errorNombre.setVisible(false);}
+        if(txtContraseña.getText().isEmpty()){
+            errorContraseña.setText("No puede haber espacios en blanco");
+            errorContraseña.setVisible(true);
+            valida = false;
+        }else{errorContraseña.setVisible(false);}
+        if(txtNombre.getText().length()<7 || txtNombre.getText().length()>12){
+            errorNombre.setText("El nombre debe ser mayor a 7 caracteres y menor a 12 caracteres");
+            errorNombre.setVisible(true);
+            valida = false;
+        }else{errorNombre.setVisible(false);}
+        if(txtContraseña.getText().length()<7 || txtContraseña.getText().length()>15){
+            errorContraseña.setText("La contraseña debe ser mayor a 7 caracteres y menor a 15 caracteres");
+            errorContraseña.setVisible(true);
+            valida = false;
+        }else{errorContraseña.setVisible(false);}
+        if(!validaContraseña(contraseña)){
+            JOptionPane.showMessageDialog(this, "La contraseña debe contener al menos un número,\n una letra y un carácter especial de\n" +
+"los siguientes: ?, $, #, @, !");
+            valida = false;
+        }
+        if(txtBasesGuardadas.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this, "Debe agregar al menos una base");
+            valida = false;
+        }
+        return valida;
+    }
+    private boolean validaContraseña(String contraseña){
+        boolean valida = false;
+        String[] lista = contraseña.split("");
+        final String[] LETRAS = {"a","b","c","d","e","f","g","h","i","j","k","l","m","n","ñ","o"
+                                ,"p","q","r","s","t","u","v","w","x","y","z"};
+        final String[] ESPECIALES = {"?", "$", "#", "@", "!"};
+        final String[] NUMEROS = {"0","1","2","3","4","5","6","7","8","9"};
+        int cantNumeros = 0;
+        int cantLetras = 0;
+        int cantEspeciales = 0;
+        for (int i = 0; i < lista.length; i++) {
+            for (int j = 0; j < LETRAS.length; j++) {
+                if(lista[i].equals(LETRAS[j])){
+                    cantNumeros++;
+                }
+            }
+            for(int j = 0;j<ESPECIALES.length; j++){
+                if(lista[i].equals(ESPECIALES[j])){
+                    cantEspeciales++;
+                }
+            }
+            for (int j = 0; j < NUMEROS.length; j++) {
+                if (lista[i].equals(NUMEROS[j])) {
+                    cantLetras++;
+                }
+            } 
+        }
+        if(cantEspeciales>1 && cantLetras>1 && cantNumeros>1){
+            valida = true;
+        }
+        return valida;
+    }
+    private void lowerCase(String pNombre, String pContraseña){
+        this.usuario = pNombre.toLowerCase();
+        this.contraseña = pContraseña.toLowerCase();
+    }
+    public void mostrarVentana(AnadirUser ventana){
+        ventana.setVisible(true);
+    }
+    public void cerrarVentana(AnadirUser ventana){
+        ventana.setVisible(false);
+    }
+    public void agregarTexto(){
+        String msg = (String) boxBases.getSelectedItem();
+        txtBasesGuardadas.setText(txtBasesGuardadas.getText()+","+msg);
+    }
+    public void cargaBases(String[] lista){
+        for (String lista1 : lista) {
+            boxBases.addItem(lista1);
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    public javax.swing.JComboBox<String> boxBases;
+    public javax.swing.JButton btAceptar;
+    public javax.swing.JButton btAgregarBase;
+    public javax.swing.JButton btCancelar;
+    private javax.swing.JLabel errorContraseña;
+    private javax.swing.JLabel errorNombre;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JLabel jLabel4;
+    public javax.swing.JTextField txtBasesGuardadas;
+    public javax.swing.JPasswordField txtContraseña;
+    public javax.swing.JTextField txtNombre;
     // End of variables declaration//GEN-END:variables
 }
