@@ -40,7 +40,7 @@ public class ControladorMenu implements ActionListener{
                 eliminaUsuario();
                 break;
             case "Crear base de datos":
-                
+                crearBase();
                 break;
             case "Crear tabla":
                 
@@ -84,6 +84,11 @@ public class ControladorMenu implements ActionListener{
     public void eliminaUsuario(){
         ElimUser ventanaEliminaUser = new ElimUser();
         ControladorElimUser controlador = new ControladorElimUser(ventanaEliminaUser);
+        controlador.mostrarVentana();
+    }
+    public void crearBase(){
+        CreaBase ventanaCreaBase = new CreaBase();
+        ControladorCreaBase controlador = new ControladorCreaBase(ventanaCreaBase);
         controlador.mostrarVentana();
     }
     public void cerrar(){
