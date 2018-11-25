@@ -143,7 +143,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 .addGap(6, 6, 6)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(30, 30, 30)
@@ -190,25 +190,28 @@ public class MenuPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btAñadirUsuarioActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
+    public void mostrarVentana(MenuPrincipal ventana){
+        ventana.setVisible(true);
+    }
+    public void cerrarVentana(MenuPrincipal ventana){
+        ventana.setVisible(false);
+    }
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btAñadirRegistros;
-    private javax.swing.JButton btAñadirRegistrosM;
-    private javax.swing.JButton btAñadirUsuario;
-    private javax.swing.JButton btCambiaNombreTabla;
-    private javax.swing.JButton btCargaRegistros;
-    private javax.swing.JButton btCreaBase;
-    private javax.swing.JButton btCrearTabla;
-    private javax.swing.JButton btEliminaRegistros;
-    private javax.swing.JButton btEliminaTabla;
-    private javax.swing.JButton btEliminaUsuario;
-    private javax.swing.JButton btHtml;
-    private javax.swing.JButton btSalir;
-    private javax.swing.JButton btSeleccionarDatos;
+    public javax.swing.JButton btAñadirRegistros;
+    public javax.swing.JButton btAñadirRegistrosM;
+    public javax.swing.JButton btAñadirUsuario;
+    public javax.swing.JButton btCambiaNombreTabla;
+    public javax.swing.JButton btCargaRegistros;
+    public javax.swing.JButton btCreaBase;
+    public javax.swing.JButton btCrearTabla;
+    public javax.swing.JButton btEliminaRegistros;
+    public javax.swing.JButton btEliminaTabla;
+    public javax.swing.JButton btEliminaUsuario;
+    public javax.swing.JButton btHtml;
+    public javax.swing.JButton btSalir;
+    public javax.swing.JButton btSeleccionarDatos;
     private javax.swing.JLabel jLNombre;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
