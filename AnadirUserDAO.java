@@ -9,6 +9,7 @@ package BasDato;
  *
  * @author Wall-E
  */
-abstract interface IngresoDAO {
-    abstract String validaIngreso(String nombre, String contraseña);
+abstract interface AnadirUserDAO {
+    abstract String anadirUser(String pNombre, String pConstrasenia, String pBasesDeDatos);
+    abstract String getBasesDeDatos();
 }

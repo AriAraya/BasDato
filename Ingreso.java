@@ -48,7 +48,7 @@ public class Ingreso extends javax.swing.JFrame {
         jLabel2.setText("Contraseña:");
 
         Cancelar.setFont(new java.awt.Font("Verdana", 0, 11)); // NOI18N
-        Cancelar.setText("Cancelar");
+        Cancelar.setText("Salir");
         Cancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CancelarActionPerformed(evt);
@@ -75,7 +75,7 @@ public class Ingreso extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(44, 44, 44)
                 .addComponent(Cancelar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 119, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 144, Short.MAX_VALUE)
                 .addComponent(Ingresar)
                 .addGap(55, 55, 55))
         );

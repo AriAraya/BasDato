@@ -31,7 +31,7 @@ public class ControladorIngreso implements ActionListener{
             case "Ingresar":
                 ingresar();
                 break;
-            case "Cancelar":
+            case "Salir":
                 cerrar();
                 break;
             default:
@@ -52,7 +52,8 @@ public class ControladorIngreso implements ActionListener{
                 JOptionPane.showMessageDialog(ventanaIngreso, "Bienvenido "+nombreUsuario+".");
                 ventanaIngreso.mostrarMenu(ventanaIngreso);
                 MenuPrincipal menu = new MenuPrincipal(valida, nombreUsuario);
-                menu.setVisible(true);
+                ControladorMenu controladorMenu = new ControladorMenu(menu);
+                controladorMenu.mostrarVentana(menu);
             }
         }
         else{
@@ -62,5 +63,8 @@ public class ControladorIngreso implements ActionListener{
     }
     public void cerrar(){
         ventanaIngreso.cerrar();
+    }
+    public void mostrarVentana(Ingreso ventana){
+        ventana.setVisible(true);
     }
 }
