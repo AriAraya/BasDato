@@ -18,11 +18,16 @@ public class ControladorCambNombTabla implements ActionListener{
     private CambNombTablaDAO dao;
     private String tabla;
     private String nuevoNombre;
+    private String listaTablas;
     private String base;
     
-    public void ControladorElimUser(CambNombTabla pVentana){
+    public ControladorCambNombTabla(CambNombTabla pVentana){
         ventanaCambiaNombre = pVentana;
         dao = new CambNombTablaDAOImpl();
+        base = ventanaCambiaNombre.base;
+        listaTablas = dao.getTablas(base);
+        String[] lista = listaTablas.split("\n");
+        ventanaCambiaNombre.cargaTablas(lista);
         
         this.ventanaCambiaNombre.ComboTabla.addActionListener(this);
         this.ventanaCambiaNombre.btnAceptar.addActionListener(this);
@@ -46,7 +51,7 @@ public class ControladorCambNombTabla implements ActionListener{
     }
     public void crearTabla(){
         nuevoNombre = ventanaCambiaNombre.txtFieldNuevNombre.getText();
-        tabla=ventanaCambiaNombre.ComboTabla.getSelectedItem().toString();
+        tabla=ventanaCambiaNombre.tablaSelected();
         
         String msg = "";
         msg = dao.cambiarNombre(tabla, nuevoNombre, base);
@@ -54,6 +59,7 @@ public class ControladorCambNombTabla implements ActionListener{
             JOptionPane.showMessageDialog(ventanaCambiaNombre, "No se puede cambiar el nombre.");
         }else{
             JOptionPane.showMessageDialog(ventanaCambiaNombre, "El nombre de la tabla se cambio con exito.");
+            cerrar();
         }
     }
     public void cerrar(){

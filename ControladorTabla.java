@@ -60,6 +60,12 @@ public class ControladorTabla implements ActionListener{
                 controlador.mostrarVentana();
                 cerrar();
             }
+            else if(accion.equals("cambiar")){
+                CambNombTabla ventanaCambiar = new CambNombTabla(base);
+                ControladorCambNombTabla controlador = new ControladorCambNombTabla(ventanaCambiar);
+                controlador.mostrarVentana();
+                cerrar();
+            }
         }
         else{
             JOptionPane.showMessageDialog(ventanaTablas, "Seleccione una base válida");

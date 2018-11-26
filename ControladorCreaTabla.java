@@ -79,7 +79,7 @@ public class ControladorCreaTabla implements ActionListener{
                 break;
             }
             if(contador>=2){
-                String[] listaCampos = textoCampos.split("\n");
+                String[] listaCampos = textoCampos.split("//*");
                 textoCampos = "";
                 for(String lista1:listaCampos){
                     textoCampos+=lista1;
@@ -100,7 +100,7 @@ public class ControladorCreaTabla implements ActionListener{
         }
     }
     public void agregarCampo(){
-        requerido=ventanaCreaTabla.ChckBxRequerido.isContentAreaFilled();
+        requerido=ventanaCreaTabla.isCheckSelected();
         campo=ventanaCreaTabla.txtFieldNombreCampo.getText();
         tipo=ventanaCreaTabla.seleccionarTipo();
         agregarTexto(campo,tipo,requerido);
@@ -131,7 +131,7 @@ public class ControladorCreaTabla implements ActionListener{
         else if(pTipo.equals("boolean")){
             pTipo = "3";
         }
-        textoCampos += ", ,"+pTipo+","+nombreC+","+req+"\n";
+        textoCampos += ", ,"+pTipo+","+nombreC+","+req+"*";
         ventanaCreaTabla.agregarTexto(msg);
     }
 }

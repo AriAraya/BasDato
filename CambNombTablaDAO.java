@@ -11,4 +11,5 @@ package BasDato;
  */
 abstract public interface CambNombTablaDAO{
     abstract String cambiarNombre(String pTabla,String pNuevoNombre,String pBase);
+    abstract String getTablas(String pBase);
 }

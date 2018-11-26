@@ -30,7 +30,28 @@ public class CambNombTablaDAOImpl implements CambNombTablaDAO{
             InputStream inFromServer = client.getInputStream();
             DataInputStream in = new DataInputStream(inFromServer);
             //Manda la acción, el nombre de usuario y la contraseña para verificar
-            out.writeUTF("9,"+","+pTabla+","+pNuevoNombre+","+pBase);
+            out.writeUTF("9,"+pTabla+","+pNuevoNombre+","+pBase);
+            msg = in.readUTF();
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+        return msg;
+    }
+
+    @Override
+    public String getTablas(String pBase) {
+        String msg="";
+        try{
+            Socket client = new Socket("localhost",PUERTO);
+            //Manda mensajes al servidor
+            OutputStream outToServer = client.getOutputStream();
+            DataOutputStream out = new DataOutputStream(outToServer);
+            //Lee lo que manda el servidor
+            InputStream inFromServer = client.getInputStream();
+            DataInputStream in = new DataInputStream(inFromServer);
+            //Manda la acción, el nombre de usuario y la contraseña para verificar
+            out.writeUTF("0,0,"+pBase);
             msg = in.readUTF();
         }
         catch (IOException e) {

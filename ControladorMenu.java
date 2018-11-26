@@ -21,16 +21,16 @@ public class ControladorMenu implements ActionListener{
         bases = ventanaMenu.bases;
         
         ventanaMenu.btAñadirRegistros.addActionListener(this);
-        ventanaMenu.btAñadirRegistrosM.addActionListener(this);
+        ventanaMenu.btOrdenarRegistros.addActionListener(this);
         ventanaMenu.btAñadirUsuario.addActionListener(this);
-        ventanaMenu.btCambiaNombreTabla.addActionListener(this);
-        ventanaMenu.btCargaRegistros.addActionListener(this);
-        ventanaMenu.btCreaBase.addActionListener(this);
+        ventanaMenu.btCambiarNombreTabla.addActionListener(this);
+        ventanaMenu.btCargarRegistros.addActionListener(this);
+        ventanaMenu.btCrearBase.addActionListener(this);
         ventanaMenu.btCrearTabla.addActionListener(this);
-        ventanaMenu.btEliminaRegistros.addActionListener(this);
-        ventanaMenu.btEliminaTabla.addActionListener(this);
-        ventanaMenu.btEliminaUsuario.addActionListener(this);
-        ventanaMenu.btHtml.addActionListener(this);
+        ventanaMenu.btEliminarRegistros.addActionListener(this);
+        ventanaMenu.btEliminarTabla.addActionListener(this);
+        ventanaMenu.btEliminarUsuario.addActionListener(this);
+        ventanaMenu.btReporteHTML.addActionListener(this);
         ventanaMenu.btSeleccionarDatos.addActionListener(this);
         ventanaMenu.btSalir.addActionListener(this);
     }
@@ -51,15 +51,15 @@ public class ControladorMenu implements ActionListener{
                 eliminarTabla();
                 break;
             case "Cambiar nombre de tabla":
-                
+                cambiarNombreTabla();
                 break;
-            case "Añadir registros manualmente":
+            case "OrdenarRegistros":
                 
                 break;
             case "Añadir usuario":
                 añadirUsuario();
                 break;
-            case "Añador registros":
+            case "Añadir registros":
                 
                 break;
             case "Seleccionar datos":
@@ -103,7 +103,7 @@ public class ControladorMenu implements ActionListener{
         ControladorTabla controlador = new ControladorTabla(ventanaTabla);
         controlador.mostrarVentana();
     }
-    public void cambiarTabla(){
+    public void cambiarNombreTabla(){
         Tabla ventanaTabla = new Tabla(bases, "cambiar");
         ControladorTabla controlador = new ControladorTabla(ventanaTabla);
         controlador.mostrarVentana();

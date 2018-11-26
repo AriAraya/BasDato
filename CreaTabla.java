@@ -204,6 +204,11 @@ public class CreaTabla extends javax.swing.JFrame {
     public void agregarTexto(String texto){
         jTextArea1.setText(jTextArea1.getText()+"\n"+texto);
     }
+    public boolean isCheckSelected(){
+        boolean valida = ChckBxRequerido.isSelected();
+        System.out.println("check: "+valida);
+        return valida;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JCheckBox ChckBxRequerido;

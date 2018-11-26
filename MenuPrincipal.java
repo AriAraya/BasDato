@@ -7,7 +7,7 @@ package BasDato;
 
 /**
  *
- * @author U1
+ * @author Wall-E
  */
 public class MenuPrincipal extends javax.swing.JFrame {
     public String bases;
@@ -21,7 +21,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         nombre = pNombre;
         contraseña = pConstraseña;
         initComponents();
-        jLNombre.setText(pNombre);
+        JLNombre.setText(pNombre);
         this.setLocationRelativeTo(null);
     }
 
@@ -35,186 +35,161 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        btEliminaUsuario = new javax.swing.JButton();
-        btCreaBase = new javax.swing.JButton();
-        btCrearTabla = new javax.swing.JButton();
-        btEliminaTabla = new javax.swing.JButton();
-        btCambiaNombreTabla = new javax.swing.JButton();
-        btAñadirRegistrosM = new javax.swing.JButton();
-        btCargaRegistros = new javax.swing.JButton();
-        btAñadirRegistros = new javax.swing.JButton();
-        btSeleccionarDatos = new javax.swing.JButton();
-        btEliminaRegistros = new javax.swing.JButton();
-        btHtml = new javax.swing.JButton();
+        JLNombre = new javax.swing.JLabel();
+        btEliminarUsuario = new javax.swing.JButton();
         btAñadirUsuario = new javax.swing.JButton();
+        btCrearBase = new javax.swing.JButton();
+        btAñadirRegistros = new javax.swing.JButton();
+        btCrearTabla = new javax.swing.JButton();
+        btEliminarTabla = new javax.swing.JButton();
+        btCambiarNombreTabla = new javax.swing.JButton();
+        btOrdenarRegistros = new javax.swing.JButton();
+        btCargarRegistros = new javax.swing.JButton();
+        btSeleccionarDatos = new javax.swing.JButton();
+        btEliminarRegistros = new javax.swing.JButton();
+        btReporteHTML = new javax.swing.JButton();
         btSalir = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        jLNombre = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Menú Principal");
-        setResizable(false);
 
-        jLabel1.setText("Mantenimiento de datos");
+        jLabel1.setText("USUARIO:");
 
-        btEliminaUsuario.setText("Eliminar usuario");
-        btEliminaUsuario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btEliminaUsuarioActionPerformed(evt);
-            }
-        });
+        btEliminarUsuario.setText("Eliminar usuario");
 
-        btCreaBase.setText("Crear base de datos");
-        btCreaBase.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btCreaBaseActionPerformed(evt);
-            }
-        });
+        btAñadirUsuario.setText("Añadir usuario");
 
-        btCrearTabla.setText("Crear tabla");
-
-        btEliminaTabla.setText("Eliminar tabla");
-
-        btCambiaNombreTabla.setText("Cambiar nombre de tabla");
-
-        btAñadirRegistrosM.setText("Añadir registros manualmente");
-
-        btCargaRegistros.setText("Cargar registros");
+        btCrearBase.setText("Crear base de datos");
 
         btAñadirRegistros.setText("Añadir registros");
 
+        btCrearTabla.setText("Crear tabla");
+
+        btEliminarTabla.setText("Eliminar tabla");
+
+        btCambiarNombreTabla.setText("Cambiar nombre de tabla");
+
+        btOrdenarRegistros.setText("Ordenar registros");
+
+        btCargarRegistros.setText("Cargar registros");
+
         btSeleccionarDatos.setText("Seleccionar datos");
 
-        btEliminaRegistros.setText("Eliminar registros");
+        btEliminarRegistros.setText("Eliminar registros");
 
-        btHtml.setText("Reporte en HTML");
-
-        btAñadirUsuario.setText("Añadir usuario");
-        btAñadirUsuario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btAñadirUsuarioActionPerformed(evt);
-            }
-        });
+        btReporteHTML.setText("Reposte en HTML");
 
         btSalir.setText("Salir");
 
-        jLabel2.setText("USUARIO:");
+        jLabel2.setText("MANTENIMIENTO DE DATOS");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btCrearTabla, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btEliminaTabla, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btCambiaNombreTabla, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btAñadirRegistrosM, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btEliminaUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btCreaBase, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btAñadirUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btAñadirRegistros, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btSeleccionarDatos, javax.swing.GroupLayout.DEFAULT_SIZE, 176, Short.MAX_VALUE)
-                            .addComponent(btEliminaRegistros, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btHtml, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btCargaRegistros, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(layout.createSequentialGroup()
+                        .addGap(25, 25, 25)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(169, 169, 169)
-                                .addComponent(btSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(btCambiarNombreTabla, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jLabel2))
-                            .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jLNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(63, 63, 63)
-                                .addComponent(jLabel1)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(btCrearTabla, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btEliminarTabla, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btCrearBase, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btEliminarUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(54, 54, 54)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(btAñadirUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btAñadirRegistros, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btSeleccionarDatos, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 169, Short.MAX_VALUE)
+                                    .addComponent(btEliminarRegistros, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGap(25, 25, 25)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(JLNombre)
+                            .addComponent(jLabel1)
+                            .addComponent(btOrdenarRegistros, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
+                        .addComponent(btCargarRegistros, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGap(173, 173, 173)
+                        .addComponent(btSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btReporteHTML, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(39, 39, 39))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(155, 155, 155)
+                .addComponent(jLabel2)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(6, 6, 6)
-                .addComponent(jLabel2)
+                .addContainerGap()
+                .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btEliminaUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btAñadirUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(26, 26, 26)
+                .addComponent(JLNombre)
+                .addGap(14, 14, 14)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btCreaBase)
-                    .addComponent(btAñadirRegistros))
-                .addGap(29, 29, 29)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btSeleccionarDatos)
-                    .addComponent(btCrearTabla, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(28, 28, 28)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btEliminaTabla)
-                    .addComponent(btEliminaRegistros))
-                .addGap(29, 29, 29)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btCambiaNombreTabla)
-                    .addComponent(btHtml))
-                .addGap(31, 31, 31)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btAñadirRegistrosM)
-                    .addComponent(btCargaRegistros, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btEliminarUsuario)
+                    .addComponent(btAñadirUsuario))
                 .addGap(18, 18, 18)
-                .addComponent(btSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btCrearBase)
+                    .addComponent(btAñadirRegistros))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btCrearTabla)
+                    .addComponent(btSeleccionarDatos))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btEliminarTabla)
+                    .addComponent(btEliminarRegistros))
+                .addGap(37, 37, 37)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btCambiarNombreTabla)
+                    .addComponent(btReporteHTML))
+                .addGap(32, 32, 32)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btOrdenarRegistros)
+                    .addComponent(btCargarRegistros))
+                .addGap(18, 18, 18)
+                .addComponent(btSalir)
                 .addGap(21, 21, 21))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btEliminaUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEliminaUsuarioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btEliminaUsuarioActionPerformed
-
-    private void btCreaBaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCreaBaseActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btCreaBaseActionPerformed
-
-    private void btAñadirUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAñadirUsuarioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btAñadirUsuarioActionPerformed
-
+    
     public void mostrarVentana(MenuPrincipal ventana){
         ventana.setVisible(true);
     }
     public void cerrarVentana(MenuPrincipal ventana){
         ventana.setVisible(false);
     }
-    
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel JLNombre;
     public javax.swing.JButton btAñadirRegistros;
-    public javax.swing.JButton btAñadirRegistrosM;
     public javax.swing.JButton btAñadirUsuario;
-    public javax.swing.JButton btCambiaNombreTabla;
-    public javax.swing.JButton btCargaRegistros;
-    public javax.swing.JButton btCreaBase;
+    public javax.swing.JButton btCambiarNombreTabla;
+    public javax.swing.JButton btCargarRegistros;
+    public javax.swing.JButton btCrearBase;
     public javax.swing.JButton btCrearTabla;
-    public javax.swing.JButton btEliminaRegistros;
-    public javax.swing.JButton btEliminaTabla;
-    public javax.swing.JButton btEliminaUsuario;
-    public javax.swing.JButton btHtml;
+    public javax.swing.JButton btEliminarRegistros;
+    public javax.swing.JButton btEliminarTabla;
+    public javax.swing.JButton btEliminarUsuario;
+    public javax.swing.JButton btOrdenarRegistros;
+    public javax.swing.JButton btReporteHTML;
     public javax.swing.JButton btSalir;
     public javax.swing.JButton btSeleccionarDatos;
-    private javax.swing.JLabel jLNombre;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
