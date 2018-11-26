@@ -10,12 +10,13 @@ package BasDato;
  * @author U1
  */
 public class CreaTabla extends javax.swing.JFrame {
-
+    private String tipoSeleccionado;
     /**
      * Creates new form CreaTabla
      */
     public CreaTabla() {
         initComponents();
+        jTextArea1.setEnabled(false);
     }
 
     /**
@@ -52,7 +53,7 @@ public class CreaTabla extends javax.swing.JFrame {
 
         jLabel4.setText("Nombre del campo:");
 
-        ComboTipo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        ComboTipo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "int", "float", "String", "boolean" }));
 
         jLabel5.setText("Tipo de dato:");
 
@@ -186,6 +187,14 @@ public class CreaTabla extends javax.swing.JFrame {
                 new CreaTabla().setVisible(true);
             }
         });
+    }
+    
+    public String seleccionarTipo(){
+        this.tipoSeleccionado = (String)ComboTipo.getSelectedItem();
+        return tipoSeleccionado;
+    }
+    public void agregarTexto(String texto){
+        jTextArea1.setText(jTextArea1.getText()+"\n"+texto);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

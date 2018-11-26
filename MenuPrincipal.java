@@ -10,14 +10,16 @@ package BasDato;
  * @author U1
  */
 public class MenuPrincipal extends javax.swing.JFrame {
-    private String bases;
-    private String nombre;
+    public String bases;
+    public String nombre;
+    public String contraseña;
     /**
      * Creates new form MenuPrincipal
      */
-    public MenuPrincipal(String pBases, String pNombre) {
+    public MenuPrincipal(String pBases, String pNombre, String pConstraseña) {
         bases = pBases;
         nombre = pNombre;
+        contraseña = pConstraseña;
         initComponents();
         jLNombre.setText(pNombre);
         this.setLocationRelativeTo(null);

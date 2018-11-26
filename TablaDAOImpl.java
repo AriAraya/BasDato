@@ -16,14 +16,15 @@ import java.net.Socket;
  *
  * @author Wall-E
  */
-
-public class CreaTablaDAOImpl implements CreaTablaDAO{
+public class TablaDAOImpl implements TablaDAO{
     private final int PUERTO = 5000;
-    
-    public String crearTabla(String pNombre,String pBase,String pCampo,Boolean pRequerido,int pTipo){
-        String msg="";
-        String requerido = String.valueOf(pRequerido);
-        String tipo = String.valueOf(pTipo);
+    String contraseña;
+    String nombre;
+    @Override
+    public String getBases(String pNombre, String pContraseña) {
+        String msg = "";
+        nombre = pNombre;
+        contraseña = pContraseña;
         try{
             Socket client = new Socket("localhost",PUERTO);
             //Manda mensajes al servidor
@@ -32,8 +33,8 @@ public class CreaTablaDAOImpl implements CreaTablaDAO{
             //Lee lo que manda el servidor
             InputStream inFromServer = client.getInputStream();
             DataInputStream in = new DataInputStream(inFromServer);
-            //Manda la acción la servidor
-            out.writeUTF("4,"+pNombre+","+pBase+", ,"+tipo+","+pCampo+","+requerido);
+            //Manda la acción, el nombre de usuario y la contraseña para verificar
+            out.writeUTF("0,3,"+nombre+","+contraseña);
             msg = in.readUTF();
         }
         catch (IOException e) {
@@ -41,4 +42,5 @@ public class CreaTablaDAOImpl implements CreaTablaDAO{
         }
         return msg;
     }
+    
 }
