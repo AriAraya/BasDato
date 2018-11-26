@@ -20,10 +20,9 @@ import java.net.Socket;
 public class CreaTablaDAOImpl implements CreaTablaDAO{
     private final int PUERTO = 5000;
     
-    public String crearTabla(String pNombre,String pBase,String pCampo,Boolean pRequerido,int pTipo){
+    @Override
+    public String crearTabla(String pNombre,String pBase,String pTextoCampos){
         String msg="";
-        String requerido = String.valueOf(pRequerido);
-        String tipo = String.valueOf(pTipo);
         try{
             Socket client = new Socket("localhost",PUERTO);
             //Manda mensajes al servidor
@@ -33,7 +32,8 @@ public class CreaTablaDAOImpl implements CreaTablaDAO{
             InputStream inFromServer = client.getInputStream();
             DataInputStream in = new DataInputStream(inFromServer);
             //Manda la acción la servidor
-            out.writeUTF("4,"+pNombre+","+pBase+", ,"+tipo+","+pCampo+","+requerido);
+            System.out.println("4,"+pNombre+","+pBase+pTextoCampos);
+            out.writeUTF("4,"+pNombre+","+pBase+pTextoCampos);
             msg = in.readUTF();
         }
         catch (IOException e) {

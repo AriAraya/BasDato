@@ -14,11 +14,13 @@ package BasDato;
 public class Tabla extends javax.swing.JFrame {
     public String bases;
     public String baseSeleccionada;
+    public String accion;
     /**
      * Creates new form Tablas
      */
-    public Tabla(String pBases) {
+    public Tabla(String pBases, String pAccion) {
         bases = pBases;
+        accion = pAccion;
         initComponents();
     }
 
@@ -83,6 +85,12 @@ public class Tabla extends javax.swing.JFrame {
 
     
     public void cargarBases(String[] lista){
+        String texto = "";
+        for(String lista1:lista){
+            texto+=","+lista1;
+        }
+        //texto = texto.substring(1, bases.length());
+        lista = texto.split(",");
         for(String lista1:lista){
             boxBases.addItem(lista1);
         }

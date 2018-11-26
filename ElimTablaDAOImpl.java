@@ -16,11 +16,13 @@ import java.net.Socket;
  *
  * @author Wall-E
  */
-public class AnadirDAOImpl implements AnadirUserDAO{
-    private final int PUERTO=5000;
+public class ElimTablaDAOImpl implements ElimTablaDAO{
+    private final int PUERTO = 5000;
     @Override
-    public String anadirUser(String pNombre, String pConstrasenia, String pBasesDeDatos) {
-    String msg = "";
+    public String eliminaTabla(String pNombre, String pBase) {
+        String nombre = pNombre;
+        String base = pBase;
+        String msg = "";
         try{
             Socket client = new Socket("localhost",PUERTO);
             //Manda mensajes al servidor
@@ -30,7 +32,7 @@ public class AnadirDAOImpl implements AnadirUserDAO{
             InputStream inFromServer = client.getInputStream();
             DataInputStream in = new DataInputStream(inFromServer);
             //Manda la acción, el nombre de usuario y la contraseña para verificar
-            out.writeUTF("2,"+pNombre+","+pConstrasenia+","+pBasesDeDatos);
+            out.writeUTF("7,"+nombre+","+base);
             msg = in.readUTF();
         }
         catch (IOException e) {
@@ -40,25 +42,24 @@ public class AnadirDAOImpl implements AnadirUserDAO{
     }
 
     @Override
-    public String getBasesDeDatos() {
+    public String cargaTablas(String pBase) {
         String msg = "";
-        
+        String base = pBase;
         try{
-        Socket client = new Socket("localhost",PUERTO);
-        //Manda mensajes al servidor
-        OutputStream outToServer = client.getOutputStream();
-        DataOutputStream out = new DataOutputStream(outToServer);
-        //Lee lo que manda el servidor
-        InputStream inFromServer = client.getInputStream();
-        DataInputStream in = new DataInputStream(inFromServer);
-        //Manda la acción, el nombre de usuario y la contraseña para verificar
-        out.writeUTF("0,4");
-        msg = in.readUTF();
+            Socket client = new Socket("localhost",PUERTO);
+            //Manda mensajes al servidor
+            OutputStream outToServer = client.getOutputStream();
+            DataOutputStream out = new DataOutputStream(outToServer);
+            //Lee lo que manda el servidor
+            InputStream inFromServer = client.getInputStream();
+            DataInputStream in = new DataInputStream(inFromServer);
+            //Manda la acción, el nombre de usuario y la contraseña para verificar
+            out.writeUTF("0,0,"+base);
+            msg = in.readUTF();
         }
         catch (IOException e) {
             e.printStackTrace();
         }
-        System.out.println(msg);
         return msg;
     }
     

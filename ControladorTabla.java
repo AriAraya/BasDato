@@ -7,6 +7,7 @@ package BasDato;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -16,12 +17,14 @@ public class ControladorTabla implements ActionListener{
     private Tabla ventanaTablas;
     private TablaDAO dao;
     private String[] listaBases;
+    private String accion;
     
     public ControladorTabla(Tabla ventana){
         ventanaTablas = ventana;
         dao = new TablaDAOImpl();
-        listaBases = ventanaTablas.bases.split(",");
-        
+        listaBases = ventanaTablas.bases.split("[ ,]");
+        accion = ventanaTablas.accion;
+        System.out.println(listaBases);
         this.ventanaTablas.cargarBases(listaBases);
         
         this.ventanaTablas.btAceptar.addActionListener(this);
@@ -44,10 +47,24 @@ public class ControladorTabla implements ActionListener{
     }
     public void mostrarSigVentana(){
         String base = ventanaTablas.seleccionarBase();
-        CreaTabla ventanaCreaTabla = new CreaTabla();
-        ControladorCreaTabla controlador = new ControladorCreaTabla(ventanaCreaTabla, base);
-        controlador.mostrarVentana();
-        cerrar();
+        if(!base.equals("")){
+            if(accion.equals("crear")){
+                
+                CreaTabla ventanaCreaTabla = new CreaTabla();
+                ControladorCreaTabla controlador = new ControladorCreaTabla(ventanaCreaTabla, base);
+                controlador.mostrarVentana();
+                cerrar();
+            }
+            else if(accion.equals("eliminar")){
+                ElimTabla ventanaElimTabla = new ElimTabla(base);
+                ControladorElimTabla controlador = new ControladorElimTabla(ventanaElimTabla);
+                controlador.mostrarVentana();
+                cerrar();
+            }
+        }
+        else{
+            JOptionPane.showMessageDialog(ventanaTablas, "Seleccione una base válida");
+        }
     }
     public void cerrar(){
         ventanaTablas.cerrarVentana(ventanaTablas);

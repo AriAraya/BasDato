@@ -48,7 +48,7 @@ public class ControladorMenu implements ActionListener{
                 crearTabla();
                 break;
             case "Eliminar tabla":
-                
+                eliminarTabla();
                 break;
             case "Cambiar nombre de tabla":
                 
@@ -94,7 +94,17 @@ public class ControladorMenu implements ActionListener{
         controlador.mostrarVentana();
     }
     public void crearTabla(){
-        Tabla ventanaTabla = new Tabla(bases);
+        Tabla ventanaTabla = new Tabla(bases, "crear");
+        ControladorTabla controlador = new ControladorTabla(ventanaTabla);
+        controlador.mostrarVentana();
+    }
+    public void eliminarTabla(){
+        Tabla ventanaTabla = new Tabla(bases, "eliminar");
+        ControladorTabla controlador = new ControladorTabla(ventanaTabla);
+        controlador.mostrarVentana();
+    }
+    public void cambiarTabla(){
+        Tabla ventanaTabla = new Tabla(bases, "cambiar");
         ControladorTabla controlador = new ControladorTabla(ventanaTabla);
         controlador.mostrarVentana();
     }

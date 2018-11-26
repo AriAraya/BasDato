@@ -9,7 +9,7 @@ package BasDato;
  *
  * @author Wall-E
  */
-  
-abstract interface CreaTablaDAO {
-    abstract String crearTabla(String pNombre,String pBase,String pTextoCampos);
+abstract interface ElimTablaDAO {
+    abstract String eliminaTabla(String pNombre, String pBase);
+    abstract String cargaTablas(String pBase);
 }

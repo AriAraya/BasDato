@@ -42,6 +42,7 @@ public class CreaTabla extends javax.swing.JFrame {
         jTextArea1 = new javax.swing.JTextArea();
         btnVolver = new javax.swing.JButton();
         txtFieldNombre = new javax.swing.JTextField();
+        btAceptar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -53,7 +54,7 @@ public class CreaTabla extends javax.swing.JFrame {
 
         jLabel4.setText("Nombre del campo:");
 
-        ComboTipo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "int", "float", "String", "boolean" }));
+        ComboTipo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "String", "int", "float", "boolean" }));
 
         jLabel5.setText("Tipo de dato:");
 
@@ -73,6 +74,8 @@ public class CreaTabla extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
+
+        btAceptar.setText("Aceptar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -105,9 +108,12 @@ public class CreaTabla extends javax.swing.JFrame {
                                 .addComponent(btnCreaCampo)
                                 .addGap(62, 62, 62))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnVolver)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnVolver)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btAceptar)))
                         .addGap(0, 57, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
@@ -136,9 +142,11 @@ public class CreaTabla extends javax.swing.JFrame {
                     .addComponent(btnCreaCampo))
                 .addGap(38, 38, 38)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
-                .addComponent(btnVolver)
-                .addGap(26, 26, 26))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnVolver)
+                    .addComponent(btAceptar))
+                .addGap(24, 24, 24))
         );
 
         pack();
@@ -190,7 +198,7 @@ public class CreaTabla extends javax.swing.JFrame {
     }
     
     public String seleccionarTipo(){
-        this.tipoSeleccionado = (String)ComboTipo.getSelectedItem();
+        this.tipoSeleccionado = ""+ComboTipo.getSelectedIndex();
         return tipoSeleccionado;
     }
     public void agregarTexto(String texto){
@@ -200,6 +208,7 @@ public class CreaTabla extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JCheckBox ChckBxRequerido;
     public javax.swing.JComboBox ComboTipo;
+    public javax.swing.JButton btAceptar;
     public javax.swing.JButton btnCreaCampo;
     public javax.swing.JButton btnVolver;
     private javax.swing.JLabel jLabel1;
@@ -209,7 +218,7 @@ public class CreaTabla extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
+    public javax.swing.JTextArea jTextArea1;
     public javax.swing.JTextField txtFieldNombre;
     public javax.swing.JTextField txtFieldNombreCampo;
     // End of variables declaration//GEN-END:variables
