@@ -7,6 +7,10 @@ package BasDato;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.net.ConnectException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -47,6 +51,9 @@ public class ControladorIngreso implements ActionListener{
             if(valida.equals("")){
                 JOptionPane.showMessageDialog(ventanaIngreso, "Nombre de usuario o contraseña incorrecto");
                 ventanaIngreso.clearSpaces();
+            }
+            else if(valida.equals("fallo")){
+                JOptionPane.showMessageDialog(ventanaIngreso, "No se pudo conectar con el servidor");
             }
             else{
                 JOptionPane.showMessageDialog(ventanaIngreso, "Bienvenido "+nombreUsuario+".");
