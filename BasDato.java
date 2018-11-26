@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package basdato;
+package BasDato;
 
 /**
  *
@@ -16,6 +16,8 @@ public class BasDato {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-    }
-    
+        Escritor este=new Escritor("C:/Users/U1/Desktop/Archivos/Juegos/","Horas juegos.txt");
+        System.out.print(este.leer());
+        System.out.print(este.getContenido());
+    }    
 }

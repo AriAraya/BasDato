@@ -9,6 +9,6 @@ package BasDato;
  *
  * @author Wall-E
  */
-public class holaPerros {
-    
+abstract interface TablaDAO {
+    abstract String getBases(String pNombre, String pContraseña);
 }
