@@ -85,6 +85,8 @@ public class Tabla extends javax.swing.JFrame {
 
     
     public void cargarBases(String[] lista){
+        lista[0] = lista[0].substring(1, lista[0].length());
+        lista[lista.length-1] = lista[lista.length-1].substring(0, lista[lista.length-1].length()-1);
         String texto = "";
         for(String lista1:lista){
             texto+=","+lista1;

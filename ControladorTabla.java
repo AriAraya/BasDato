@@ -24,7 +24,6 @@ public class ControladorTabla implements ActionListener{
         dao = new TablaDAOImpl();
         listaBases = ventanaTablas.bases.split("[ ,]");
         accion = ventanaTablas.accion;
-        System.out.println(listaBases);
         this.ventanaTablas.cargarBases(listaBases);
         
         this.ventanaTablas.btAceptar.addActionListener(this);

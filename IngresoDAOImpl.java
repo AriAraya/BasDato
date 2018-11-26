@@ -31,6 +31,7 @@ public class IngresoDAOImpl implements IngresoDAO {
             mensaje = in.readUTF();
         }
         catch (IOException e) {
+            mensaje = "fallo";
             e.printStackTrace();
         }
         return mensaje;
