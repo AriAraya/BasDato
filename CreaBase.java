@@ -5,6 +5,7 @@
  */
 package BasDato;
 
+import javax.swing.JButton;
 import javax.swing.JOptionPane;
 
 /**
@@ -94,12 +95,6 @@ public class CreaBase extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btAceptarActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {                                         
-        // TODO add your handling code here:
-        MenuPrincipal M=new MenuPrincipal();
-        dispose();
-        M.setVisible(true);
-    }
     /**
      * @param args the command line arguments
      */
@@ -144,7 +139,6 @@ public class CreaBase extends javax.swing.JFrame {
     public void mostrarVentana(CreaBase pVentana){
         pVentana.setVisible(true);
     }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btAceptar;
     public javax.swing.JButton btSalir;

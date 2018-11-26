@@ -121,9 +121,9 @@ public class CargaManual extends javax.swing.JFrame {
     
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {                                         
         // TODO add your handling code here:
-        MenuPrincipal M=new MenuPrincipal();
-        dispose();
-        M.setVisible(true);
+//        MenuPrincipal M=new MenuPrincipal();
+//        dispose();
+//        M.setVisible(true);
     }
     /**
      * @param args the command line arguments
