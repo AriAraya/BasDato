@@ -5,6 +5,7 @@
  */
 package BasDato;
 
+import com.sun.org.apache.xpath.internal.compiler.OpCodes;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
@@ -22,17 +23,19 @@ public class ControladorCreaTabla implements ActionListener{
     private boolean requerido;
     private String tipo;
     private String base;
-    private static int contador = 0;
+    private int contador = 1;
+    public String textoCampos="";
     
     public ControladorCreaTabla(CreaTabla pVentana, String pBase){
         ventanaCreaTabla = pVentana;
         base = pBase;
-        dao = (CreaTablaDAO) new CreaTablaDAOImpl();
+        dao = new CreaTablaDAOImpl();
         
         this.ventanaCreaTabla.ChckBxRequerido.addActionListener(this);
         this.ventanaCreaTabla.ComboTipo.addActionListener(this);
         this.ventanaCreaTabla.btnCreaCampo.addActionListener(this);
         this.ventanaCreaTabla.btnVolver.addActionListener(this);
+        this.ventanaCreaTabla.btAceptar.addActionListener(this);
         this.ventanaCreaTabla.txtFieldNombreCampo.addActionListener(this);
         
     }
@@ -42,6 +45,9 @@ public class ControladorCreaTabla implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         switch(e.getActionCommand()){
             case "Agregar campo":
+                agregarCampo();
+                break;
+            case "Aceptar":
                 crearTabla();
                 break;
             case "Volver":
@@ -54,9 +60,6 @@ public class ControladorCreaTabla implements ActionListener{
     public void crearTabla(){
         nombre = ventanaCreaTabla.txtFieldNombre.getText();
         String msg = "";
-        requerido=ventanaCreaTabla.ChckBxRequerido.isContentAreaFilled();
-        campo=ventanaCreaTabla.txtFieldNombreCampo.getText();
-        tipo=ventanaCreaTabla.seleccionarTipo();
         int pTipo=1;
         if(!nombre.isEmpty()){
             switch(tipo){
@@ -75,15 +78,32 @@ public class ControladorCreaTabla implements ActionListener{
             default:
                 break;
             }
-            msg = dao.crearTabla(nombre,base,campo,requerido,pTipo);
-            if(msg.equals("false")){
-                JOptionPane.showMessageDialog(ventanaCreaTabla, "No se puede crear la tabla.");
+            if(contador>=2){
+                String[] listaCampos = textoCampos.split("\n");
+                textoCampos = "";
+                for(String lista1:listaCampos){
+                    textoCampos+=lista1;
+                }
+                msg = dao.crearTabla(nombre,base,textoCampos);
+                if(msg.equals("false")){
+                    JOptionPane.showMessageDialog(ventanaCreaTabla, "No se puede crear la tabla.");
+                }
+                else{
+                    JOptionPane.showMessageDialog(ventanaCreaTabla, "La tabla y el campo se crearon con exito.");
+                    cerrar();
+                }
             }
             else{
-                JOptionPane.showMessageDialog(ventanaCreaTabla, "La tabla y el campo se crearon con exito.");
-                agregarTexto(campo,tipo,requerido);
+                JOptionPane.showMessageDialog(ventanaCreaTabla,"Para crear la tabla deben existir al menos dos tablas");
             }
+            
         }
+    }
+    public void agregarCampo(){
+        requerido=ventanaCreaTabla.ChckBxRequerido.isContentAreaFilled();
+        campo=ventanaCreaTabla.txtFieldNombreCampo.getText();
+        tipo=ventanaCreaTabla.seleccionarTipo();
+        agregarTexto(campo,tipo,requerido);
     }
     public void cerrar(){
         ventanaCreaTabla.setVisible(false);
@@ -99,6 +119,19 @@ public class ControladorCreaTabla implements ActionListener{
         }else{
             msg+="No]";
         }
+        if(pTipo.equals("String")){
+            pTipo = "0";
+        }
+        else if(pTipo.equals("int")){
+            pTipo = "1";
+        }
+        else if(pTipo.equals("float")){
+            pTipo = "2";
+        }
+        else if(pTipo.equals("boolean")){
+            pTipo = "3";
+        }
+        textoCampos += ", ,"+pTipo+","+nombreC+","+req+"\n";
         ventanaCreaTabla.agregarTexto(msg);
     }
 }

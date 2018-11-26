@@ -28,6 +28,7 @@ public class ControladorAnadirUser implements ActionListener{
         this.ventanaAnadir.boxBases.addActionListener(this);
         
         listaBases = dao.getBasesDeDatos().split("\n");
+        System.out.println(listaBases);
         ventanaAnadir.cargaBases(listaBases);
         ventanaAnadir.boxBases.setVisible(true);
         ventanaAnadir.boxBases.setSelectedIndex (0);
@@ -40,7 +41,7 @@ public class ControladorAnadirUser implements ActionListener{
                 anadirUser();
                 break;
             case "+":
-                anadirBase(e);
+                anadirBase();
                 break;
             case "Cancelar":
                 cerrar();
@@ -55,6 +56,8 @@ public class ControladorAnadirUser implements ActionListener{
             String contraseña = ventanaAnadir.txtContraseña.getText();
             String bases;
             bases = ventanaAnadir.txtBasesGuardadas.getText();
+            bases = bases.substring(1, bases.length());
+            System.out.println(bases);
             String mensaje = dao.anadirUser(nombre, contraseña, bases);
             if(mensaje.equals("false")){
                 JOptionPane.showMessageDialog(ventanaAnadir, "El usuario ya está registrado");
@@ -68,7 +71,7 @@ public class ControladorAnadirUser implements ActionListener{
     public void cerrar(){
         ventanaAnadir.setVisible(false);
     }
-    public void anadirBase(ActionEvent e){
+    public void anadirBase(){
         ventanaAnadir.agregarTexto();
     }
     public void mostrarVentana(){

@@ -51,6 +51,7 @@ public class ControladorIngreso implements ActionListener{
             else{
                 JOptionPane.showMessageDialog(ventanaIngreso, "Bienvenido "+nombreUsuario+".");
                 ventanaIngreso.mostrarMenu(ventanaIngreso);
+                System.out.println(valida);
                 MenuPrincipal menu = new MenuPrincipal(valida, nombreUsuario, contraseña);
                 ControladorMenu controladorMenu = new ControladorMenu(menu);
                 controladorMenu.mostrarVentana(menu);
