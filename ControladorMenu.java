@@ -14,9 +14,11 @@ import java.awt.event.ActionListener;
  */
 public class ControladorMenu implements ActionListener{
     public MenuPrincipal ventanaMenu;
+    public String bases;
     
     public ControladorMenu(MenuPrincipal ventana){
         ventanaMenu = ventana;
+        bases = ventanaMenu.bases;
         
         ventanaMenu.btAñadirRegistros.addActionListener(this);
         ventanaMenu.btAñadirRegistrosM.addActionListener(this);
@@ -43,7 +45,7 @@ public class ControladorMenu implements ActionListener{
                 crearBase();
                 break;
             case "Crear tabla":
-                
+                crearTabla();
                 break;
             case "Eliminar tabla":
                 
@@ -89,6 +91,11 @@ public class ControladorMenu implements ActionListener{
     public void crearBase(){
         CreaBase ventanaCreaBase = new CreaBase();
         ControladorCreaBase controlador = new ControladorCreaBase(ventanaCreaBase);
+        controlador.mostrarVentana();
+    }
+    public void crearTabla(){
+        Tabla ventanaTabla = new Tabla(bases);
+        ControladorTabla controlador = new ControladorTabla(ventanaTabla);
         controlador.mostrarVentana();
     }
     public void cerrar(){

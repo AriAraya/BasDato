@@ -27,7 +27,7 @@ public class ControladorAnadirUser implements ActionListener{
         this.ventanaAnadir.btAgregarBase.addActionListener(this);
         this.ventanaAnadir.boxBases.addActionListener(this);
         
-        listaBases = dao.getBasesDeDatos().split(",");
+        listaBases = dao.getBasesDeDatos().split("\n");
         ventanaAnadir.cargaBases(listaBases);
         ventanaAnadir.boxBases.setVisible(true);
         ventanaAnadir.boxBases.setSelectedIndex (0);

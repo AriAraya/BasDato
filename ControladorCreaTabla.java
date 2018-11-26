@@ -21,9 +21,12 @@ public class ControladorCreaTabla implements ActionListener{
     private String campo;
     private boolean requerido;
     private String tipo;
+    private String base;
+    private static int contador = 0;
     
-    public void ControladorElimUser(CreaTabla pVentana){
+    public ControladorCreaTabla(CreaTabla pVentana, String pBase){
         ventanaCreaTabla = pVentana;
+        base = pBase;
         dao = (CreaTablaDAO) new CreaTablaDAOImpl();
         
         this.ventanaCreaTabla.ChckBxRequerido.addActionListener(this);
@@ -38,10 +41,10 @@ public class ControladorCreaTabla implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         switch(e.getActionCommand()){
-            case "btnCreaCampo":
+            case "Agregar campo":
                 crearTabla();
                 break;
-            case "btnVolver":
+            case "Volver":
                 cerrar();
                 break;
             default:
@@ -53,7 +56,7 @@ public class ControladorCreaTabla implements ActionListener{
         String msg = "";
         requerido=ventanaCreaTabla.ChckBxRequerido.isContentAreaFilled();
         campo=ventanaCreaTabla.txtFieldNombreCampo.getText();
-        tipo=ventanaCreaTabla.ComboTipo.getSelectedItem().toString();
+        tipo=ventanaCreaTabla.seleccionarTipo();
         int pTipo=1;
         if(!nombre.isEmpty()){
             switch(tipo){
@@ -72,12 +75,13 @@ public class ControladorCreaTabla implements ActionListener{
             default:
                 break;
             }
-            msg = dao.crearTabla(nombre,"",campo,requerido,pTipo);
+            msg = dao.crearTabla(nombre,base,campo,requerido,pTipo);
             if(msg.equals("false")){
                 JOptionPane.showMessageDialog(ventanaCreaTabla, "No se puede crear la tabla.");
             }
             else{
                 JOptionPane.showMessageDialog(ventanaCreaTabla, "La tabla y el campo se crearon con exito.");
+                agregarTexto(campo,tipo,requerido);
             }
         }
     }
@@ -86,5 +90,15 @@ public class ControladorCreaTabla implements ActionListener{
     }
     public void mostrarVentana(){
         ventanaCreaTabla.setVisible(true);
+    }
+    public void agregarTexto(String nombreC, String pTipo,boolean req){
+        String msg = "Campo "+contador+++"[";
+        msg+=nombreC+", "+pTipo+", ";
+        if(req){
+            msg+="Sí]";
+        }else{
+            msg+="No]";
+        }
+        ventanaCreaTabla.agregarTexto(msg);
     }
 }
