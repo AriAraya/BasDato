@@ -10,6 +10,10 @@ package BasDato;
  * @author Wall-E
  */
 public class Programa {
+    /**
+     * main
+     * @param args 
+     */
     public static void main(String[] args){
         Ingreso ventana = new Ingreso();
         ControladorIngreso controlador = new ControladorIngreso(ventana);

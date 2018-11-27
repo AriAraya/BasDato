@@ -20,7 +20,10 @@ import javax.swing.JOptionPane;
 public class ControladorIngreso implements ActionListener{
     public Ingreso ventanaIngreso;
     public IngresoDAO dao;
-    
+    /**
+     * Constructor del controlador para ingresar al programa (logIn)
+     * @param ventana ventana donde se va a trabajar
+     */
     public ControladorIngreso(Ingreso ventana){
         ventanaIngreso = ventana;
         dao = new IngresoDAOImpl();
@@ -28,7 +31,10 @@ public class ControladorIngreso implements ActionListener{
         this.ventanaIngreso.Ingresar.addActionListener(this);
         this.ventanaIngreso.Cancelar.addActionListener(this);
     }
-
+    /**
+     * Obtiene la acción dada por la vista y realiza una operación dependiendo de la acción dada
+     * @param e acción dada por la vista
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         switch(e.getActionCommand()){
@@ -42,6 +48,9 @@ public class ControladorIngreso implements ActionListener{
                 break;
         }
     }
+    /**
+     * Método que ingresa los datos de la vista en constantes y esas constantes son pasadas al modelo
+     */
     public void ingresar(){
         if(!ventanaIngreso.txtSpacesEmpty()){
             String nombreUsuario = ventanaIngreso.textoUsuario.getText();
@@ -80,9 +89,16 @@ public class ControladorIngreso implements ActionListener{
             ventanaIngreso.clearSpaces();
         }
     }
+    /**
+     * cierra la ventana de la vista
+     */
     public void cerrar(){
         ventanaIngreso.cerrar();
     }
+    /**
+     * muestra la ventana de la vista
+     * @param ventana 
+     */
     public void mostrarVentana(Ingreso ventana){
         ventana.setVisible(true);
     }

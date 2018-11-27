@@ -18,6 +18,12 @@ import java.net.Socket;
  */
 public class CrearBaseDAOImpl implements CrearBaseDAO{
     private final int PUERTO = 5000;
+    /**
+     * Crea un socket para que pase el nombre de la base de datos a crear al servidor
+     * @param pNombre nombre de la base de datos
+     * @return retorna un String que puede ser true, en caso de crear la base de datos, o
+     * false en el caso de que no haya podidio crear la base de datos
+     */
     @Override
     public String crearBase(String pNombre) {
         String msg="";

@@ -15,6 +15,14 @@ import java.net.Socket;
 
 public class IngresoDAOImpl implements IngresoDAO {
     private final int PUERTO=5000;
+    /**
+     * Crea un socket que pasa los parámetros del método para que este pueda validar el ingreso al
+     * programa
+     * @param nombre Nombre de usuario a verificar
+     * @param contraseña Contraseña del usuario a verificar
+     * @return retorna un String que puede ser vacío, en caso que no exista el usuario consultado, o
+     * un String con todas las bases de datos a las que tiene acceso dicho usuario
+     */
     @Override
     public String validaIngreso(String nombre, String contraseña) {
         String mensaje = "";
@@ -36,7 +44,10 @@ public class IngresoDAOImpl implements IngresoDAO {
         }
         return mensaje;
     }
-    
+    /**
+     * Crea un socket que pide al servidor todas las bases de datos que han sido registradas
+     * @return Retorna un String con todas las bases de datos registradas
+     */
     @Override
     public String getBasesDeDatos() {
         String msg = "";

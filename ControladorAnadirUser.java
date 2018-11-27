@@ -18,6 +18,10 @@ public class ControladorAnadirUser implements ActionListener{
     private AnadirUserDAO dao;
     private String[] listaBases;
     
+    /**
+     * Constructor del controlador para añadir usuarios
+     * @param pVentana ventana con la cual va a trabajar el controlador
+     */
     public ControladorAnadirUser(AnadirUser pVentana){
         ventanaAnadir = pVentana;
         dao = new AnadirDAOImpl();
@@ -33,7 +37,10 @@ public class ControladorAnadirUser implements ActionListener{
         ventanaAnadir.boxBases.setVisible(true);
         ventanaAnadir.boxBases.setSelectedIndex (0);
     }
-
+    /**
+     * Obtiene la acción que hace la vista para añadir usuarios
+     * @param e evento
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         switch(e.getActionCommand()){
@@ -50,6 +57,10 @@ public class ControladorAnadirUser implements ActionListener{
                 break;
         }
     }
+    /**
+     * Método para crear el usuario, donde obtiene los datos desde la vista y manda esos datos
+     * al modelo para crear el usuario
+     */
     public void anadirUser(){
         if(ventanaAnadir.validaEspacios()){
             String nombre = ventanaAnadir.txtNombre.getText();
@@ -68,12 +79,21 @@ public class ControladorAnadirUser implements ActionListener{
             }
         }
     }
+    /**
+     * cierra la ventana
+     */
     public void cerrar(){
         ventanaAnadir.setVisible(false);
     }
+    /**
+     * carga el texto de la vista
+     */
     public void anadirBase(){
         ventanaAnadir.agregarTexto();
     }
+    /**
+     * muestra la vista
+     */
     public void mostrarVentana(){
         ventanaAnadir.setVisible(true);
     }

@@ -15,7 +15,10 @@ import java.awt.event.ActionListener;
 public class ControladorMenu implements ActionListener{
     public MenuPrincipal ventanaMenu;
     public String bases;
-    
+    /**
+     * Contructor del controlador para mostrar el menú
+     * @param ventana 
+     */
     public ControladorMenu(MenuPrincipal ventana){
         ventanaMenu = ventana;
         bases = ventanaMenu.bases;
@@ -34,7 +37,10 @@ public class ControladorMenu implements ActionListener{
         ventanaMenu.btSeleccionarDatos.addActionListener(this);
         ventanaMenu.btSalir.addActionListener(this);
     }
-
+    /**
+     * Obtiene la acción dada por la vista y realiza una operación dependiendo de la acción dada
+     * @param e acción dada por la vista
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         switch(e.getActionCommand()){
@@ -66,7 +72,7 @@ public class ControladorMenu implements ActionListener{
                 
                 break;
             case "Reporte en HTML":
-                
+                generarHTML();
                 break;
             case "Cargar registros":
                 
@@ -78,47 +84,84 @@ public class ControladorMenu implements ActionListener{
                 break;
         }
     }
+    /**
+     * Método que crea una vista y un controlador para añadir un usuario
+     */
     public void añadirUsuario(){
         AnadirUser ventanaAñadir = new AnadirUser();
         ControladorAnadirUser controladorAnadirUser = new ControladorAnadirUser(ventanaAñadir);
         controladorAnadirUser.mostrarVentana();
     }
+    /**
+     * Método crea una vista y un controlador para eliminar un usuario
+     */
     public void eliminaUsuario(){
         ElimUser ventanaEliminaUser = new ElimUser();
         ControladorElimUser controlador = new ControladorElimUser(ventanaEliminaUser);
         controlador.mostrarVentana();
     }
+    /**
+     * Método crea una vista y un controlador para crear una base
+     */
     public void crearBase(){
         CreaBase ventanaCreaBase = new CreaBase();
         ControladorCreaBase controlador = new ControladorCreaBase(ventanaCreaBase);
         controlador.mostrarVentana();
     }
+    /**
+     * Método crea una vista y un controlador para crear una tabla
+     */
     public void crearTabla(){
         Tabla ventanaTabla = new Tabla(bases, "crear");
         ControladorTabla controlador = new ControladorTabla(ventanaTabla);
         controlador.mostrarVentana();
     }
+    /**
+     * Método crea una vista y un controlador para eliminar una tabla
+     */
     public void eliminarTabla(){
         Tabla ventanaTabla = new Tabla(bases, "eliminar");
         ControladorTabla controlador = new ControladorTabla(ventanaTabla);
         controlador.mostrarVentana();
     }
+    /**
+     * Método crea una vista y un controlador para cambiarle el nombre a una tabla
+     */
     public void cambiarNombreTabla(){
         Tabla ventanaTabla = new Tabla(bases, "cambiar");
         ControladorTabla controlador = new ControladorTabla(ventanaTabla);
         controlador.mostrarVentana();
     }
+    /**
+     * Método crea una vista y un controlador para añadir un registro a una tabla
+     */
     public void añadirRegistro(){
         Tabla ventanaTabla = new Tabla(bases, "registroM");
         ControladorTabla controlador = new ControladorTabla(ventanaTabla);
         controlador.mostrarVentana();
     }
+    /**
+     * Método crea una vista y un controlador para generar el HTML
+     */
+    public void generarHTML(){
+        Tabla ventanaTabla = new Tabla(bases, "HTML");
+        ControladorTabla controlador = new ControladorTabla(ventanaTabla);
+        controlador.mostrarVentana();
+    }
+    /**
+     * Cierra la ventana de la vista actual y crea una vista y un controlador para ingresar al programa
+     * (LogOut)
+     */
     public void cerrar(){
         ventanaMenu.cerrarVentana(ventanaMenu);
         Ingreso ventanaIngreso = new Ingreso();
         ControladorIngreso controladorIngreso = new ControladorIngreso(ventanaIngreso);
         controladorIngreso.mostrarVentana(ventanaIngreso);
     }
+    /**
+     * Muestra la ventana de una vista
+     * @param ventana vista que va a ser cerrada
+     */
     public void mostrarVentana(MenuPrincipal ventana){
         ventana.setVisible(true);
     }

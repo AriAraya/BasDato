@@ -20,7 +20,10 @@ public class ControladorCambNombTabla implements ActionListener{
     private String nuevoNombre;
     private String listaTablas;
     private String base;
-    
+    /**
+     * Contructor del controlador para cambiar el nombre de una tabla
+     * @param pVentana vista con la cual va a trabajar el controlador
+     */
     public ControladorCambNombTabla(CambNombTabla pVentana){
         ventanaCambiaNombre = pVentana;
         dao = new CambNombTablaDAOImpl();
@@ -35,12 +38,15 @@ public class ControladorCambNombTabla implements ActionListener{
         this.ventanaCambiaNombre.txtFieldNuevNombre.addActionListener(this);
     }
     
-    
+    /**
+     * Obtiene la acción dada por la vista y realiza una operación dependiendo de la accion dada
+     * @param e acción de la vista
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         switch(e.getActionCommand()){
             case "Aceptar":
-                crearTabla();
+                cambiarNombreTabla();
                 break;
             case "Volver":
                 cerrar();
@@ -49,7 +55,10 @@ public class ControladorCambNombTabla implements ActionListener{
                 break;
         }
     }
-    public void crearTabla(){
+    /**
+     * Método que cambia el nombre de una tabla seleccionada por la vista
+     */
+    public void cambiarNombreTabla(){
         nuevoNombre = ventanaCambiaNombre.txtFieldNuevNombre.getText();
         tabla=ventanaCambiaNombre.tablaSelected();
         
@@ -62,9 +71,15 @@ public class ControladorCambNombTabla implements ActionListener{
             cerrar();
         }
     }
+    /**
+     * cierra la ventana de la vista
+     */
     public void cerrar(){
         ventanaCambiaNombre.setVisible(false);
     }
+    /**
+     * muestra la ventana de la vista
+     */
     public void mostrarVentana(){
         ventanaCambiaNombre.setVisible(true);
     }

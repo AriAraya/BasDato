@@ -18,6 +18,12 @@ import java.net.Socket;
  */
 public class ElimUserDAOImpl implements ElimUserDAO{
     private final int PUERTO = 5000;
+    /**
+     * Crea un socket que pasa el nombre del usuario al servidor para ser eliminado
+     * @param pNombre Nombre del usuario a eliminar
+     * @return retorna un String que puede ser true, si logra eliminar al usuario, o 
+     * un false, si no logra eliminarlo.
+     */
     @Override
     public String removeUser(String pNombre) {
         String msg="";
@@ -38,7 +44,10 @@ public class ElimUserDAOImpl implements ElimUserDAO{
         }
         return msg;
     }
-
+    /**
+     * Crea un socker que pide al servidor los usuarios registrados
+     * @return retorna un String con todos los nombres de usuario registrados por ek servidor
+     */
     @Override
     public String getUsers() {
         String msg="";
