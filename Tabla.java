@@ -39,6 +39,8 @@ public class Tabla extends javax.swing.JFrame {
         btCancelar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Seleccionar base de datos");
+        setResizable(false);
 
         jLabel1.setText("Seleccione la base de datos:");
 

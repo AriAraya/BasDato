@@ -37,4 +37,27 @@ public class IngresoDAOImpl implements IngresoDAO {
         return mensaje;
     }
     
+    @Override
+    public String getBasesDeDatos() {
+        String msg = "";
+        
+        try{
+        Socket client = new Socket("localhost",PUERTO);
+        //Manda mensajes al servidor
+        OutputStream outToServer = client.getOutputStream();
+        DataOutputStream out = new DataOutputStream(outToServer);
+        //Lee lo que manda el servidor
+        InputStream inFromServer = client.getInputStream();
+        DataInputStream in = new DataInputStream(inFromServer);
+        //Manda la acción, el nombre de usuario y la contraseña para verificar
+        out.writeUTF("0,4");
+        msg = in.readUTF();
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+        System.out.println(msg);
+        return msg;
+    }
+    
 }

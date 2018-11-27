@@ -110,9 +110,6 @@ public class Ingreso extends javax.swing.JFrame {
     }//GEN-LAST:event_CancelarActionPerformed
 
     private void IngresarActionPerformed(java.awt.event.ActionEvent evt) {
-//        MenuPrincipal M=new MenuPrincipal();
-//        dispose();
-//        M.setVisible(true);
     }
     /**
      * @param args the command line arguments

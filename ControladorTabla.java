@@ -22,7 +22,7 @@ public class ControladorTabla implements ActionListener{
     public ControladorTabla(Tabla ventana){
         ventanaTablas = ventana;
         dao = new TablaDAOImpl();
-        listaBases = ventanaTablas.bases.split("[ ,]");
+        listaBases = ventanaTablas.bases.split("[\n,]");
         accion = ventanaTablas.accion;
         this.ventanaTablas.cargarBases(listaBases);
         
@@ -65,6 +65,11 @@ public class ControladorTabla implements ActionListener{
                 ControladorCambNombTabla controlador = new ControladorCambNombTabla(ventanaCambiar);
                 controlador.mostrarVentana();
                 cerrar();
+            }
+            else if(accion.equals("registroM")){
+                RegistrosManual ventanaRegistro = new RegistrosManual(base);
+                ControladorRegistrosManual controlador = new ControladorRegistrosManual(ventanaRegistro);
+                controlador.mostrarVentana();
             }
         }
         else{

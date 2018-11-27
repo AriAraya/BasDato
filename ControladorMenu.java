@@ -60,7 +60,7 @@ public class ControladorMenu implements ActionListener{
                 añadirUsuario();
                 break;
             case "Añadir registros":
-                
+                añadirRegistro();
                 break;
             case "Seleccionar datos":
                 
@@ -105,6 +105,11 @@ public class ControladorMenu implements ActionListener{
     }
     public void cambiarNombreTabla(){
         Tabla ventanaTabla = new Tabla(bases, "cambiar");
+        ControladorTabla controlador = new ControladorTabla(ventanaTabla);
+        controlador.mostrarVentana();
+    }
+    public void añadirRegistro(){
+        Tabla ventanaTabla = new Tabla(bases, "registroM");
         ControladorTabla controlador = new ControladorTabla(ventanaTabla);
         controlador.mostrarVentana();
     }
