@@ -56,12 +56,23 @@ public class ControladorIngreso implements ActionListener{
                 JOptionPane.showMessageDialog(ventanaIngreso, "No se pudo conectar con el servidor");
             }
             else{
-                JOptionPane.showMessageDialog(ventanaIngreso, "Bienvenido "+nombreUsuario+".");
-                ventanaIngreso.mostrarMenu(ventanaIngreso);
-                System.out.println(valida);
-                MenuPrincipal menu = new MenuPrincipal(valida, nombreUsuario, contraseña);
-                ControladorMenu controladorMenu = new ControladorMenu(menu);
-                controladorMenu.mostrarVentana(menu);
+                if(contraseña.equals("123Admin$")&&nombreUsuario.equals("AdminRiko")){
+                    valida = dao.getBasesDeDatos();
+                    JOptionPane.showMessageDialog(ventanaIngreso, "Bienvenido de vuelta "+nombreUsuario+". Estamos felices con su ingreso");
+                    ventanaIngreso.mostrarMenu(ventanaIngreso);
+                    System.out.println(valida);
+                    MenuPrincipal menu = new MenuPrincipal(valida, nombreUsuario, contraseña);
+                    ControladorMenu controladorMenu = new ControladorMenu(menu);
+                    controladorMenu.mostrarVentana(menu);
+                }
+                else{
+                    JOptionPane.showMessageDialog(ventanaIngreso, "Bienvenido "+nombreUsuario+".");
+                    ventanaIngreso.mostrarMenu(ventanaIngreso);
+                    System.out.println(valida);
+                    MenuPrincipal menu = new MenuPrincipal(valida, nombreUsuario, contraseña);
+                    ControladorMenu controladorMenu = new ControladorMenu(menu);
+                    controladorMenu.mostrarVentana(menu);
+                }
             }
         }
         else{

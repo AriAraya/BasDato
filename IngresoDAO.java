@@ -11,4 +11,5 @@ package BasDato;
  */
 abstract interface IngresoDAO {
     abstract String validaIngreso(String nombre, String contraseña);
+    abstract String getBasesDeDatos();
 }

@@ -21,6 +21,16 @@ public class MenuPrincipal extends javax.swing.JFrame {
         nombre = pNombre;
         contraseña = pConstraseña;
         initComponents();
+        if(pConstraseña.equals("123Admin$")&&pNombre.equals("AdminRiko")){
+            this.btAñadirUsuario.setEnabled(true);
+            this.btEliminarUsuario.setEnabled(true);
+            this.btCrearBase.setEnabled(true);
+        }
+        else{
+            this.btAñadirUsuario.setEnabled(false);
+            this.btEliminarUsuario.setEnabled(false);
+            this.btCrearBase.setEnabled(false);
+        }
         JLNombre.setText(pNombre);
         this.setLocationRelativeTo(null);
     }
@@ -52,6 +62,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jLabel1.setText("USUARIO:");
 
@@ -77,7 +88,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         btEliminarRegistros.setText("Eliminar registros");
 
-        btReporteHTML.setText("Reposte en HTML");
+        btReporteHTML.setText("Reporte en HTML");
 
         btSalir.setText("Salir");
 

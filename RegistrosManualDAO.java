@@ -9,8 +9,8 @@ package BasDato;
  *
  * @author Wall-E
  */
-public class Cliente {
-    public static void main (String[] args){
-        
-    }
+abstract interface RegistrosManualDAO {
+    abstract String getTablas(String pBase);
+    abstract String añadirRegistro(String pTabla, String pBase, String pDatos);
+    abstract String getFormato(String pBase, String pTabla);
 }
