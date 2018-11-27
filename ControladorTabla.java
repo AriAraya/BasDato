@@ -112,6 +112,10 @@ public class ControladorTabla implements ActionListener{
     public void mostrarVentana(){
         ventanaTablas.mostrarVentata(ventanaTablas);
     }
+    /**
+     * Método que toma un String del modelo y lo cambia de tal forma que se pueda crear un archivo .html
+     * @param datos Datos que van a ir dentro del html
+     */
     public void toHTML(String datos){
         String[] listaDatos = datos.split("[\n]");
         datos = "<HTML><HEAD><TITLE>Base de datos: "+listaDatos[0]+"</TITLE></HEAD><BODY>";
@@ -123,6 +127,10 @@ public class ControladorTabla implements ActionListener{
         creaArchivo(datos);
         JOptionPane.showMessageDialog(ventanaTablas, "Reporte generado exitosamente.\n Generado en: "+PATH);
     }
+    /**
+     * Crea un archivo en un PATH definido
+     * @param datos Datos que se van a escribir dentro de un archivo
+     */
     public void creaArchivo(String datos){
         String ruta = PATH;
         File archivo = new File(ruta);
