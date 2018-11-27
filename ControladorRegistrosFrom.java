@@ -85,7 +85,7 @@ public class ControladorRegistrosFrom implements ActionListener{
             f = new FileReader(rutatotal);
             BufferedReader b = new BufferedReader(f);
             while((cadena = b.readLine())!=null) {
-                datos+=cadena+"-";
+                datos+=cadena+";";
             }
             datos = datos.substring(0, datos.length()-1);
             System.out.println(datos);
