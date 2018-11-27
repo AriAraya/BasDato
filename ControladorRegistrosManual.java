@@ -20,7 +20,10 @@ public class ControladorRegistrosManual implements ActionListener{
     private String[] listaTablas;
     private String base;
     private String nombreTabla;
-    
+    /**
+     * Constructor del controlador para agregar registros manualmente
+     * @param ventana 
+     */
     public ControladorRegistrosManual(RegistrosManual ventana){
         ventanaRegistros = ventana;
         dao = new RegistrosManualDAOImpl();
@@ -34,7 +37,10 @@ public class ControladorRegistrosManual implements ActionListener{
         this.ventanaRegistros.btSeleccionarTabla.addActionListener(this);
         this.ventanaRegistros.boxTabla.addActionListener(this);
     }
-    
+    /**
+     * Obtiene la acción dada por la vista y realiza una operación dependiendo de la acción dada
+     * @param e acción dada por la vista
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         switch(e.getActionCommand()){
@@ -51,7 +57,9 @@ public class ControladorRegistrosManual implements ActionListener{
                 break;
         }
     }
-    
+    /**
+     * Método que añade un registro a una tabla en una base dada por la vista
+     */
     public void añadirRegistro(){
         String datos = ventanaRegistros.txtDatos.getText();
         String msg = "";
@@ -74,6 +82,9 @@ public class ControladorRegistrosManual implements ActionListener{
             JOptionPane.showMessageDialog(ventanaRegistros, "Ingrese los datos");
         }
     }  
+    /**
+     * Método que muestra el formato de los campos de una tabla
+     */
     public void mostrarFormato(){
         nombreTabla = ventanaRegistros.seleccionarTabla();
         String formato = "";
@@ -112,9 +123,15 @@ public class ControladorRegistrosManual implements ActionListener{
         }
         ventanaRegistros.jLformato.setText(formato);
     }
+    /**
+     * muestra la ventana de una vista
+     */
     public void mostrarVentana(){
         ventanaRegistros.setVisible(true);
     }
+    /**
+     * cierra la ventana de la vista
+     */
     public void cerrar(){
         ventanaRegistros.setVisible(false);
     }

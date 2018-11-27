@@ -16,7 +16,10 @@ import javax.swing.JOptionPane;
 public class ControladorCreaBase implements ActionListener {
    private CrearBaseDAO dao;
    private CreaBase ventanaCreaBase;
-    
+    /**
+     * Contructor del controlador para crear una base de datos.
+     * @param ventana vista con la cual va a trabajar el controlador
+     */
     public ControladorCreaBase(CreaBase ventana){
         ventanaCreaBase = ventana;
         dao = new CrearBaseDAOImpl();
@@ -24,7 +27,10 @@ public class ControladorCreaBase implements ActionListener {
         this.ventanaCreaBase.btAceptar.addActionListener(this);
         this.ventanaCreaBase.btSalir.addActionListener(this);
     }
-    
+    /**
+     * Obtiene la acción dada por la vista y realiza una operación dependiendo de la accion dada
+     * @param e acción dada por la vista
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         switch(e.getActionCommand()){
@@ -38,6 +44,10 @@ public class ControladorCreaBase implements ActionListener {
                 break;
         }
     }
+    /**
+     * Crea la base de datos. Obtiene los datos por medio de datos de la vista y manda esos datos a el
+     * modelo
+     */
     public void crearBase(){
         String msg="";
         String nombre = ventanaCreaBase.txtNombre.getText();
@@ -52,9 +62,15 @@ public class ControladorCreaBase implements ActionListener {
             }
         }
     }
+    /**
+     * cierra la ventana de la vista
+     */
     public void cerrar(){
         ventanaCreaBase.setVisible(false);
     }
+    /**
+     * Muestra la ventana de la vista
+     */
     public void mostrarVentana(){
         ventanaCreaBase.mostrarVentana(ventanaCreaBase);
     }

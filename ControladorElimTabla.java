@@ -19,7 +19,10 @@ public class ControladorElimTabla implements ActionListener{
     private String base;
     private String nombreTabla;
     private String[] listaTablas;
-    
+    /**
+     * Constructor del controlador para eliminar una tabla
+     * @param pVentana ventana de la vista con la que se va a trabajar
+     */
     public ControladorElimTabla(ElimTabla pVentana){
         ventanaElimTabla = pVentana;
         dao = new ElimTablaDAOImpl();
@@ -34,6 +37,10 @@ public class ControladorElimTabla implements ActionListener{
         this.ventanaElimTabla.btVolver.addActionListener(this);
         
     }
+    /**
+     * Obtiene la acción dada por la vista y realiza una operación dependiendo de la acción dada
+     * @param e acción dada por la vista
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         switch(e.getActionCommand()){
@@ -47,6 +54,9 @@ public class ControladorElimTabla implements ActionListener{
                 break;
         }
     }
+    /**
+     * Método que elimina una tabla obtenida por medio de la vista.
+     */
     public void eliminarTabla(){
         String tabla = ventanaElimTabla.seleccionarBase();
         String msg = "";
@@ -59,9 +69,15 @@ public class ControladorElimTabla implements ActionListener{
             cerrar();
         }
     }
+    /**
+     * cierra la ventana de la vista
+     */
     public void cerrar(){
         this.ventanaElimTabla.cerrarVentana(ventanaElimTabla);
     }
+    /**
+     * mustra la ventana de la vista
+     */
     public void mostrarVentana(){
         this.ventanaElimTabla.mostrarVentana(ventanaElimTabla);
     }

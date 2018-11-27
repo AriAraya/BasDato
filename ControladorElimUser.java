@@ -17,7 +17,10 @@ public class ControladorElimUser implements ActionListener{
     private ElimUser ventanaElimUsar;
     private ElimUserDAO dao;
     private String[] listaUsuarios;
-    
+    /**
+     * Constructor del controlador para eliminar usuario
+     * @param pVentana ventana de la vista en la cual se va a trabajar
+     */
     public ControladorElimUser(ElimUser pVentana){
         ventanaElimUsar = pVentana;
         dao = new ElimUserDAOImpl();
@@ -31,8 +34,10 @@ public class ControladorElimUser implements ActionListener{
         ventanaElimUsar.boxUsers.setVisible(true);
         ventanaElimUsar.boxUsers.setSelectedIndex(0);
     }
-    
-    
+    /**
+     * Obtiene la acción dada por la vista y realiza una operación dependiendo de la acción dada
+     * @param e acción dada por la vista
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         switch(e.getActionCommand()){
@@ -46,6 +51,9 @@ public class ControladorElimUser implements ActionListener{
                 break;
         }
     }
+    /**
+     * Método que remueve un usuario, donde los datos se obtienen a traves de la vista
+     */
     public void removeUser(){
         String nombre = ventanaElimUsar.seleccionarUsuario();
         String msg = "";
@@ -60,9 +68,15 @@ public class ControladorElimUser implements ActionListener{
             }
         }
     }
+    /**
+     * cierra la ventana de la vista
+     */
     public void cerrar(){
         ventanaElimUsar.setVisible(false);
     }
+    /**
+     * muestra la ventana de la vista
+     */
     public void mostrarVentana(){
         ventanaElimUsar.setVisible(true);
     }

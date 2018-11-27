@@ -25,7 +25,12 @@ public class ControladorCreaTabla implements ActionListener{
     private String base;
     private int contador = 1;
     public String textoCampos="";
-    
+    /**
+     * Contructor del controlador para crear tablas. Recibe la ventan de la vista a trabajar y la base
+     * para cargar las tablas que contiene esta base
+     * @param pVentana ventana de la vista con la cual se va a trabajar
+     * @param pBase Base de datos, de la cual se van a obtener las tablas
+     */
     public ControladorCreaTabla(CreaTabla pVentana, String pBase){
         ventanaCreaTabla = pVentana;
         base = pBase;
@@ -40,7 +45,10 @@ public class ControladorCreaTabla implements ActionListener{
         
     }
     
-    
+    /**
+     * Obtiene la acción dada por la vista y realiza una operación dependiendo de la acción dada
+     * @param e Acción dada por la vista
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         switch(e.getActionCommand()){
@@ -57,6 +65,10 @@ public class ControladorCreaTabla implements ActionListener{
                 break;
         }
     }
+    /**
+     * Crea la tabla en una base de datos dada. Obtiene los datos de contantes de la vista y
+     * estos datos los pasa al modelo
+     */
     public void crearTabla(){
         nombre = ventanaCreaTabla.txtFieldNombre.getText();
         String msg = "";
@@ -99,18 +111,34 @@ public class ControladorCreaTabla implements ActionListener{
             
         }
     }
+    /**
+     * Método que agrega los datos de los campos en una variable para despues crear la tabla con los datos
+     */
     public void agregarCampo(){
         requerido=ventanaCreaTabla.isCheckSelected();
         campo=ventanaCreaTabla.txtFieldNombreCampo.getText();
         tipo=ventanaCreaTabla.seleccionarTipo();
         agregarTexto(campo,tipo,requerido);
     }
+    /**
+     * cierra la ventana de la vista
+     */
     public void cerrar(){
         ventanaCreaTabla.setVisible(false);
     }
+    /**
+     * muestra la ventana de la vista
+     */
     public void mostrarVentana(){
         ventanaCreaTabla.setVisible(true);
     }
+    /**
+     * Método que agrega los datos de los campos en un StringVar para que el cliente tenga noción de 
+     * cómo están quedando los datos de los campos
+     * @param nombreC nombre del campo
+     * @param pTipo tipo de dato del campo
+     * @param req boolean que verifica si el campo es requerido o no
+     */
     public void agregarTexto(String nombreC, String pTipo,boolean req){
         String msg = "Campo "+contador+++"[";
         msg+=nombreC+", "+pTipo+", ";
