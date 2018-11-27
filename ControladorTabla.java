@@ -101,6 +101,12 @@ public class ControladorTabla implements ActionListener{
                 controlador.mostrarVentana();
                 cerrar();
             }
+            else if(accion.equals("eliminarRegistros")){
+                ElimRegistros ventanaElimRegistro = new ElimRegistros(base);
+                ControladorElimRegistros controlador = new ControladorElimRegistros(ventanaElimRegistro);
+                controlador.mostrarVentana();
+                cerrar();
+            }
         }
         else{
             JOptionPane.showMessageDialog(ventanaTablas, "Seleccione una base válida");
