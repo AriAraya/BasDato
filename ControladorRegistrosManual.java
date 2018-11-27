@@ -86,42 +86,49 @@ public class ControladorRegistrosManual implements ActionListener{
      * Método que muestra el formato de los campos de una tabla
      */
     public void mostrarFormato(){
+        ventanaRegistros.jLformato.setText("");
         nombreTabla = ventanaRegistros.seleccionarTabla();
         String formato = "";
-        String[] listaFormato = dao.getFormato(base, nombreTabla).split("-");
-        for(int i = 0; i<listaFormato.length;i++){
-            String[] listaCampos = listaFormato[i].split("[ ,]");
-            formato+=listaCampos[2]+"(";
-            if(listaCampos[2].equals("0")){
-                if(listaCampos[3].equals("true*")){
-                    formato+="(String, Sí),";
-                }else{
-                    formato+="(String, No),";
+        if(!nombreTabla.isEmpty()){
+            String[] listaFormato = dao.getFormato(base, nombreTabla).split("-");
+            for(int i = 0; i<listaFormato.length;i++){
+                String[] listaCampos = listaFormato[i].split("[ ,]");
+                formato+=listaCampos[2]+"(";
+                if(listaCampos[2].equals("0")){
+                    if(listaCampos[3].equals("true*")){
+                        formato+="(String, Sí),";
+                    }else{
+                        formato+="(String, No),";
+                    }
+                }
+                else if(listaCampos[2].equals("1")){
+                    if(listaCampos[3].equals("true*")){
+                        formato+="(entero, Sí),";
+                    }else{
+                        formato+="(entero, No),";
+                    }
+                }
+                else if(listaCampos[2].equals("2")){
+                    if(listaCampos[3].equals("true*")){
+                        formato+="(buleano, Sí),";
+                    }else{
+                        formato+="(buleano, No),";
+                    }
+                }
+                else if(listaCampos[2].equals("3")){
+                    if(listaCampos[3].equals("true*")){
+                        formato+="(flotante, Sí),";
+                    }else{
+                        formato+="(flotante, No),";
+                    }
                 }
             }
-            else if(listaCampos[2].equals("1")){
-                if(listaCampos[3].equals("true*")){
-                    formato+="(entero, Sí),";
-                }else{
-                    formato+="(entero, No),";
-                }
-            }
-            else if(listaCampos[2].equals("2")){
-                if(listaCampos[3].equals("true*")){
-                    formato+="(buleano, Sí),";
-                }else{
-                    formato+="(buleano, No),";
-                }
-            }
-            else if(listaCampos[2].equals("3")){
-                if(listaCampos[3].equals("true*")){
-                    formato+="(flotante, Sí),";
-                }else{
-                    formato+="(flotante, No),";
-                }
-            }
+            ventanaRegistros.jLformato.setText(formato);
         }
-        ventanaRegistros.jLformato.setText(formato);
+        else{
+            JOptionPane.showMessageDialog(ventanaRegistros, "Seleccione una base de datos válida");
+        }
+        
     }
     /**
      * muestra la ventana de una vista
