@@ -95,6 +95,12 @@ public class ControladorTabla implements ActionListener{
                 toHTML(msg);
                 cerrar();
             }
+            else if(accion.equals("RegistrosFrom")){
+                RegistrosFrom ventanaRegistroF = new RegistrosFrom(base);
+                ControladorRegistrosFrom controlador = new ControladorRegistrosFrom(ventanaRegistroF);
+                controlador.mostrarVentana();
+                cerrar();
+            }
         }
         else{
             JOptionPane.showMessageDialog(ventanaTablas, "Seleccione una base válida");

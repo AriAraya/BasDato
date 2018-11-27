@@ -75,7 +75,7 @@ public class ControladorMenu implements ActionListener{
                 generarHTML();
                 break;
             case "Cargar registros":
-                
+                cargaRegistros();
                 break;
             case "Salir":
                 cerrar();
@@ -145,6 +145,11 @@ public class ControladorMenu implements ActionListener{
      */
     public void generarHTML(){
         Tabla ventanaTabla = new Tabla(bases, "HTML");
+        ControladorTabla controlador = new ControladorTabla(ventanaTabla);
+        controlador.mostrarVentana();
+    }
+    public void cargaRegistros(){
+        Tabla ventanaTabla = new Tabla(bases,"RegistrosFrom");
         ControladorTabla controlador = new ControladorTabla(ventanaTabla);
         controlador.mostrarVentana();
     }
