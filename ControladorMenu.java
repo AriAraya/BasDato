@@ -77,6 +77,9 @@ public class ControladorMenu implements ActionListener{
             case "Cargar registros":
                 cargaRegistros();
                 break;
+            case "Eliminar registros":
+                eliminarRegistros();
+                break;
             case "Salir":
                 cerrar();
                 break;
@@ -148,8 +151,19 @@ public class ControladorMenu implements ActionListener{
         ControladorTabla controlador = new ControladorTabla(ventanaTabla);
         controlador.mostrarVentana();
     }
+    /**
+     * Método crea una vista y un controlador para cargar registros de archivos
+     */
     public void cargaRegistros(){
         Tabla ventanaTabla = new Tabla(bases,"RegistrosFrom");
+        ControladorTabla controlador = new ControladorTabla(ventanaTabla);
+        controlador.mostrarVentana();
+    }
+    /**
+     * Método crea una vista y un controlador para eliminar registros
+     */
+    public void eliminarRegistros(){
+        Tabla ventanaTabla = new Tabla(bases,"eliminarRegistros");
         ControladorTabla controlador = new ControladorTabla(ventanaTabla);
         controlador.mostrarVentana();
     }

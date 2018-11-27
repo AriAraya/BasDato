@@ -12,6 +12,7 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -129,30 +130,31 @@ public class ControladorRegistrosFrom implements ActionListener{
             String[] listaFormato = dao.getFormato(base, nombreTabla).split("-");
             for(int i = 0; i<listaFormato.length;i++){
                 String[] listaCampos = listaFormato[i].split("[ ,]");
-                formato+=listaCampos[2]+"(";
+                System.out.println(Arrays.toString(listaCampos));
+                formato+=listaCampos[3]+"(";
                 if(listaCampos[2].equals("0")){
-                    if(listaCampos[3].equals("true*")){
+                    if(listaCampos[4].equals("true")){
                         formato+="(String, Sí),";
                     }else{
                         formato+="(String, No),";
                     }
                 }
                 else if(listaCampos[2].equals("1")){
-                    if(listaCampos[3].equals("true*")){
+                    if(listaCampos[4].equals("true")){
                         formato+="(entero, Sí),";
                     }else{
                         formato+="(entero, No),";
                     }
                 }
                 else if(listaCampos[2].equals("2")){
-                    if(listaCampos[3].equals("true*")){
+                    if(listaCampos[4].equals("true")){
                         formato+="(buleano, Sí),";
                     }else{
                         formato+="(buleano, No),";
                     }
                 }
                 else if(listaCampos[2].equals("3")){
-                    if(listaCampos[3].equals("true*")){
+                    if(listaCampos[4].equals("true")){
                         formato+="(flotante, Sí),";
                     }else{
                         formato+="(flotante, No),";
